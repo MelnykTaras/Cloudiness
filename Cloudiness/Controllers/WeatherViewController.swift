@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  WeatherViewController.swift
 //  Cloudiness
 //
 //  Created by Admin on 7/11/18.
@@ -8,8 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+private final class WeatherViewController: UIViewController {
 
+    // MARK: - View lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
