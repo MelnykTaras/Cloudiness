@@ -12,9 +12,12 @@
 		84E2F7F920F657950066E02F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84E2F7F820F657950066E02F /* Assets.xcassets */; };
 		84E2F7FC20F657950066E02F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E2F7FA20F657950066E02F /* LaunchScreen.storyboard */; };
 		84E2F80520F6FF250066E02F /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E2F80420F6FF240066E02F /* WeatherViewController.swift */; };
+		9645E55B28532925B0F1B7C1 /* libPods-Cloudiness.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BDB8F8588D423E31C4DF345C /* libPods-Cloudiness.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4BD34B1715B3BCEE31481C68 /* Pods-Cloudiness.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cloudiness.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cloudiness/Pods-Cloudiness.debug.xcconfig"; sourceTree = "<group>"; };
+		649FE7AD69ABA78381B9E28E /* Pods-Cloudiness.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cloudiness.release.xcconfig"; path = "Pods/Target Support Files/Pods-Cloudiness/Pods-Cloudiness.release.xcconfig"; sourceTree = "<group>"; };
 		84E2F7EE20F657900066E02F /* Cloudiness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cloudiness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84E2F7F120F657900066E02F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84E2F7F620F657900066E02F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -22,6 +25,7 @@
 		84E2F7FB20F657950066E02F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84E2F7FD20F657950066E02F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84E2F80420F6FF240066E02F /* WeatherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		BDB8F8588D423E31C4DF345C /* libPods-Cloudiness.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Cloudiness.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9645E55B28532925B0F1B7C1 /* libPods-Cloudiness.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A80D0F10E636776E8F03C0D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4BD34B1715B3BCEE31481C68 /* Pods-Cloudiness.debug.xcconfig */,
+				649FE7AD69ABA78381B9E28E /* Pods-Cloudiness.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		84E2F7E520F6578F0066E02F = {
 			isa = PBXGroup;
 			children = (
 				84E2F7F020F657900066E02F /* Cloudiness */,
 				84E2F7EF20F657900066E02F /* Products */,
+				1A80D0F10E636776E8F03C0D /* Pods */,
+				E9AE031098422E43B2F81227 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,6 +120,14 @@
 			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
+		E9AE031098422E43B2F81227 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BDB8F8588D423E31C4DF345C /* libPods-Cloudiness.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -111,6 +135,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84E2F80020F657950066E02F /* Build configuration list for PBXNativeTarget "Cloudiness" */;
 			buildPhases = (
+				04ECE15ED03175E6A21342EB /* [CP] Check Pods Manifest.lock */,
 				84E2F80320F6FA510066E02F /* ShellScript */,
 				84E2F7EA20F657900066E02F /* Sources */,
 				84E2F7EB20F657900066E02F /* Frameworks */,
@@ -172,6 +197,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		04ECE15ED03175E6A21342EB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Cloudiness-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		84E2F80320F6FA510066E02F /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -353,6 +396,7 @@
 		};
 		84E2F80120F657950066E02F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4BD34B1715B3BCEE31481C68 /* Pods-Cloudiness.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -371,6 +415,7 @@
 		};
 		84E2F80220F657950066E02F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 649FE7AD69ABA78381B9E28E /* Pods-Cloudiness.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
