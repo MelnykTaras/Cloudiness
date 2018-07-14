@@ -14,4 +14,13 @@ final class WeatherDataSource {
         
         return []
     }
+    
+    public func json() -> String {
+        
+        return ""
+    }
+    
+    static public func update() {
+        WeatherRequestor.downloadWeather()
+    }
 }
