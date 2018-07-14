@@ -21,10 +21,10 @@ final class WeatherFileManager {
         }
     }
     
-    public static func fileContent() -> Data {
+    public static func fileContent() -> String {
         do {
-            let data = try Data(contentsOf: fileURL, options: .uncached)
-            return data
+            let jsonString = try String(contentsOf: fileURL, encoding: .ascii)
+            return jsonString
         } catch {
             fatalError(error.localizedDescription)
         }

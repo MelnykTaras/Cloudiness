@@ -17,13 +17,9 @@ final class WeatherDataSource {
     }
     
     public static func json() -> String {
-        let jsonData = WeatherFileManager.fileContent()
-        do {
-            let json = try JSON(data: jsonData)
-            return json.description
-        } catch {
-            fatalError(error.localizedDescription)
-        }
+        let jsonString: String = WeatherFileManager.fileContent()
+        let json = JSON.init(parseJSON: jsonString)
+        return json.description
     }
     
     public static func update() {
