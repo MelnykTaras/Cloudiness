@@ -15,7 +15,7 @@ final class WeatherViewController: UICollectionViewController {
     // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        clouds = WeatherDataSource.fetchWeather()
+        clouds = WeatherDataSource.fetchWeather(withDelegate: self)
         setup()
     }
     
@@ -44,15 +44,29 @@ extension WeatherViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WeatherCell.id, for: indexPath)
-        cell.backgroundColor = UIColor(white: CGFloat(1.0 - (clouds[indexPath.row].cloudiness)/100.0), alpha: 1.0)
+        cell.backgroundColor = UIColor(white: CGFloat(1.0 - (clouds[indexPath.row].cloudiness) / 100.0), alpha: 1.0)
         return cell
     }
 }
 
 // MARK: - Actions
 extension WeatherViewController {
+    
     @objc func showRawWeatherData(_ sender: UIBarButtonItem) {
         let rawWeatherViewController = RawWeatherViewController()
         self.navigationController?.pushViewController(rawWeatherViewController, animated: true)
+    }
+}
+
+// MARK: - WeatherRequestorDelegate
+extension WeatherViewController: WeatherRequestorDelegate {
+    
+    func onDidReceiveData() {
+        clouds = WeatherParser.clouds()
+        collectionView!.reloadData()
+    }
+    
+    func onDidReceiveError(_ error: Error) {
+        // Todo: show HUD
     }
 }

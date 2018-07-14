@@ -11,8 +11,8 @@ import SwiftyJSON
 
 final class WeatherDataSource {
     
-    public static func fetchWeather() -> [Cloud] {
-//        update()
+    public static func fetchWeather(withDelegate delegate: WeatherRequestorDelegate) -> [Cloud] {
+        update(withDelegate: delegate)
         return WeatherParser.clouds()
     }
     
@@ -24,7 +24,8 @@ final class WeatherDataSource {
         return json.description
     }
     
-    public static func update() {
-        WeatherRequestor.downloadWeather()
+    public static func update(withDelegate delegate: WeatherRequestorDelegate) {
+        // Todo: check last modified date
+        WeatherRequestor.downloadWeather(withDelegate: delegate)
     }
 }
