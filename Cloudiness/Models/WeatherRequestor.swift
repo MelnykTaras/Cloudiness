@@ -34,7 +34,9 @@ final class WeatherRequestor {
     }
     
     private static func handleError(_ error: Error, withDelegate delegate: WeatherRequestorDelegate) {
-        delegate.onDidReceiveError(error)
+        if error.code != ErrorCode.offline.rawValue {
+            delegate.onDidReceiveError(error)
+        }
     }
     
     private static func processResponse(_ response: DataResponse<String>, withDelegate delegate: WeatherRequestorDelegate) {

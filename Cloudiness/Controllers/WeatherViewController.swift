@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import PKHUD
 
 final class WeatherViewController: UICollectionViewController {
 
@@ -68,6 +67,8 @@ extension WeatherViewController: WeatherRequestorDelegate {
     }
     
     func onDidReceiveError(_ error: Error) {
-        
+        let alert = UIAlertController(title: error.localizedDescription, message: "Code: \(error.code)", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }
