@@ -8,14 +8,12 @@
 
 import Foundation
 import Alamofire
-import SwiftyJSON
 
 final class WeatherRequestor {
     
     private static let weatherURL = "https://api.met.no/weatherapi/locationforecastlts/1.3/"
     private static let parameters = ["lat": 49,
-                                     "lon": 28,
-                                     "msl": 240]
+                                     "lon": 28]
     private static let HTTPHeaders = ["Accept": "application/json",
                                       "Accept-Encoding": "gzip"]
     
@@ -41,11 +39,5 @@ final class WeatherRequestor {
     
     private static func processResponse(_ response: DataResponse<String>) {
         WeatherFileManager.saveToFile(response.data!)
-        do {
-            let json = try JSON(data: response.data!)
-            print(json)
-        } catch {
-            fatalError(error.localizedDescription)
-        }
     }
 }

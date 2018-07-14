@@ -10,9 +10,12 @@ import UIKit
 
 final class WeatherViewController: UICollectionViewController {
 
+    private var clouds: [Cloud]!
+    
     // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        clouds = WeatherDataSource.fetchWeather()
         setup()
     }
     
@@ -36,13 +39,12 @@ final class WeatherViewController: UICollectionViewController {
 extension WeatherViewController {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 7 * 24
+        return clouds.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WeatherCell.id, for: indexPath)
-        cell.layer.borderColor = UIColor.red.cgColor
-        cell.layer.borderWidth = 1
+        cell.backgroundColor = UIColor(white: CGFloat(1.0 - (clouds[indexPath.row].cloudiness)/100.0), alpha: 1.0)
         return cell
     }
 }
@@ -50,7 +52,7 @@ extension WeatherViewController {
 // MARK: - Actions
 extension WeatherViewController {
     @objc func showRawWeatherData(_ sender: UIBarButtonItem) {
-        let rawWeatherViewController = RawWeatherViewController.init()
+        let rawWeatherViewController = RawWeatherViewController()
         self.navigationController?.pushViewController(rawWeatherViewController, animated: true)
     }
 }

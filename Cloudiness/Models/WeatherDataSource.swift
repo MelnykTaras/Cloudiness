@@ -11,14 +11,16 @@ import SwiftyJSON
 
 final class WeatherDataSource {
     
-    public static func weatherData() -> [AnyObject] {
-        
-        return []
+    public static func fetchWeather() -> [Cloud] {
+//        update()
+        return WeatherParser.clouds()
     }
     
     public static func json() -> String {
-        let jsonString: String = WeatherFileManager.fileContent()
-        let json = JSON.init(parseJSON: jsonString)
+        guard let jsonString = WeatherFileManager.fileContent() else {
+            return ""
+        }
+        let json = JSON(parseJSON: jsonString)
         return json.description
     }
     

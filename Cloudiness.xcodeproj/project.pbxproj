@@ -12,6 +12,10 @@
 		845DA76820F719F9008F841E /* WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845DA76620F719F8008F841E /* WeatherCell.swift */; };
 		845DA76920F719F9008F841E /* WeatherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845DA76720F719F9008F841E /* WeatherCell.xib */; };
 		84AE0D5D20F9E57400A29658 /* WeatherFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AE0D5C20F9E57400A29658 /* WeatherFileManager.swift */; };
+		84AE0D5F20FA003000A29658 /* Cloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AE0D5E20FA003000A29658 /* Cloud.swift */; };
+		84AE0D6220FA02ED00A29658 /* DateFromStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AE0D6120FA02ED00A29658 /* DateFromStringExtension.swift */; };
+		84AE0D6520FA03B900A29658 /* DateFormatterCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AE0D6420FA03B900A29658 /* DateFormatterCache.swift */; };
+		84AE0D6720FA0C7D00A29658 /* WeatherParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AE0D6620FA0C7D00A29658 /* WeatherParser.swift */; };
 		84DF143820F8E9B300E0B471 /* RawWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF143620F8E9B300E0B471 /* RawWeatherViewController.swift */; };
 		84DF143920F8E9B300E0B471 /* RawWeatherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84DF143720F8E9B300E0B471 /* RawWeatherViewController.xib */; };
 		84E2F7F220F657900066E02F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E2F7F120F657900066E02F /* AppDelegate.swift */; };
@@ -30,6 +34,10 @@
 		845DA76620F719F8008F841E /* WeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCell.swift; sourceTree = "<group>"; };
 		845DA76720F719F9008F841E /* WeatherCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherCell.xib; sourceTree = "<group>"; };
 		84AE0D5C20F9E57400A29658 /* WeatherFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherFileManager.swift; sourceTree = "<group>"; };
+		84AE0D5E20FA003000A29658 /* Cloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cloud.swift; sourceTree = "<group>"; };
+		84AE0D6120FA02ED00A29658 /* DateFromStringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFromStringExtension.swift; sourceTree = "<group>"; };
+		84AE0D6420FA03B900A29658 /* DateFormatterCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterCache.swift; sourceTree = "<group>"; };
+		84AE0D6620FA0C7D00A29658 /* WeatherParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherParser.swift; sourceTree = "<group>"; };
 		84DF143620F8E9B300E0B471 /* RawWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawWeatherViewController.swift; sourceTree = "<group>"; };
 		84DF143720F8E9B300E0B471 /* RawWeatherViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RawWeatherViewController.xib; sourceTree = "<group>"; };
 		84E2F7EE20F657900066E02F /* Cloudiness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cloudiness.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +71,22 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		84AE0D6020FA01F300A29658 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				84AE0D6120FA02ED00A29658 /* DateFromStringExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		84AE0D6320FA039F00A29658 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				84AE0D6420FA03B900A29658 /* DateFormatterCache.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		84E2F7E520F6578F0066E02F = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +111,8 @@
 				84E2F80820F6FFD90066E02F /* Models */,
 				84E2F80720F6FFCE0066E02F /* Views */,
 				84E2F80620F6FFA80066E02F /* Controllers */,
+				84AE0D6020FA01F300A29658 /* Extensions */,
+				84AE0D6320FA039F00A29658 /* Utils */,
 				84E2F80920F700010066E02F /* Resources */,
 				84E2F80A20F700170066E02F /* SupportingFiles */,
 			);
@@ -121,6 +147,8 @@
 				84057CF720F8F79F006EF634 /* WeatherDataSource.swift */,
 				84057CF920F8FDC8006EF634 /* WeatherRequestor.swift */,
 				84AE0D5C20F9E57400A29658 /* WeatherFileManager.swift */,
+				84AE0D5E20FA003000A29658 /* Cloud.swift */,
+				84AE0D6620FA0C7D00A29658 /* WeatherParser.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -263,7 +291,11 @@
 				84AE0D5D20F9E57400A29658 /* WeatherFileManager.swift in Sources */,
 				84E2F7F220F657900066E02F /* AppDelegate.swift in Sources */,
 				84057CF820F8F79F006EF634 /* WeatherDataSource.swift in Sources */,
+				84AE0D5F20FA003000A29658 /* Cloud.swift in Sources */,
+				84AE0D6720FA0C7D00A29658 /* WeatherParser.swift in Sources */,
 				84DF143820F8E9B300E0B471 /* RawWeatherViewController.swift in Sources */,
+				84AE0D6520FA03B900A29658 /* DateFormatterCache.swift in Sources */,
+				84AE0D6220FA02ED00A29658 /* DateFromStringExtension.swift in Sources */,
 				845DA76820F719F9008F841E /* WeatherCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
