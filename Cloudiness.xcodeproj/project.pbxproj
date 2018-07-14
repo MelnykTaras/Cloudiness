@@ -192,7 +192,6 @@
 				84E2F7EA20F657900066E02F /* Sources */,
 				84E2F7EB20F657900066E02F /* Frameworks */,
 				84E2F7EC20F657900066E02F /* Resources */,
-				EE1DEB1C753A375D50233653 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -282,24 +281,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
 			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"";
-		};
-		EE1DEB1C753A375D50233653 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Cloudiness/Pods-Cloudiness-resources.sh",
-				"${PODS_ROOT}/PKHUD/PKHUD/Images.xcassets",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Assets.car",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Cloudiness/Pods-Cloudiness-resources.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
