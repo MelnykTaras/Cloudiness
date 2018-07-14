@@ -7,20 +7,26 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 final class WeatherDataSource {
     
-    public func weatherData() -> [AnyObject] {
+    public static func weatherData() -> [AnyObject] {
         
         return []
     }
     
-    public func json() -> String {
-        
-        return ""
+    public static func json() -> String {
+        let jsonData = WeatherFileManager.fileContent()
+        do {
+            let json = try JSON(data: jsonData)
+            return json.description
+        } catch {
+            fatalError(error.localizedDescription)
+        }
     }
     
-    static public func update() {
+    public static func update() {
         WeatherRequestor.downloadWeather()
     }
 }

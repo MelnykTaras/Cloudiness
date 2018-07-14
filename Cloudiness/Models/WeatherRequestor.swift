@@ -20,7 +20,11 @@ final class WeatherRequestor {
                                       "Accept-Encoding": "gzip"]
     
     public static func downloadWeather() {
-        Alamofire.request(weatherURL, method: .get, parameters: parameters, encoding: URLEncoding.queryString, headers: HTTPHeaders).responseString {
+        Alamofire.request(weatherURL,
+                          method: .get,
+                          parameters: parameters,
+                          encoding: URLEncoding.queryString,
+                          headers: HTTPHeaders).responseString {
             response in
             switch response.result {
             case .success:
@@ -32,10 +36,11 @@ final class WeatherRequestor {
     }
     
     private static func handleError(_ error: Error) {
-        print(error)
+        fatalError(error.localizedDescription)
     }
     
     private static func processResponse(_ response: DataResponse<String>) {
+        WeatherFileManager.saveToFile(response.data!)
         do {
             let json = try JSON(data: response.data!)
             print(json)
