@@ -10,6 +10,7 @@ import Foundation
 import SwiftyJSON
 
 final class WeatherParser {
+    
     static func clouds() -> [Cloud] {
         var clouds = [Cloud]()
         guard let jsonString = WeatherFileManager.fileContent() else {
@@ -21,8 +22,8 @@ final class WeatherParser {
             guard let cloudiness = entry.dictionary?["location"]?.dictionary?["cloudiness"]?.dictionary?["percent"]?.string else {
                 continue
             }
-            let from = entry.dictionary?["from"]?.string
-            let cloud = Cloud(from: from!, cloudiness: cloudiness)
+            let from = entry.dictionary!["from"]!.string!
+            let cloud = Cloud(from: from, cloudiness: cloudiness)
             clouds.append(cloud)
         }
         return clouds
