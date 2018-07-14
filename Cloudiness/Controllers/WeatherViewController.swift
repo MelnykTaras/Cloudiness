@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PKHUD
 
 final class WeatherViewController: UICollectionViewController {
 
@@ -22,6 +23,8 @@ final class WeatherViewController: UICollectionViewController {
     private func setup() {
         let rawWeatherButtonItem = UIBarButtonItem(title: "Raw", style: .plain, target: self, action: #selector(showRawWeatherData(_:)))
         navigationItem.rightBarButtonItem = rawWeatherButtonItem
+        
+        PKHUD.sharedHUD.userInteractionOnUnderlyingViewsEnabled = true
         
         collectionView!.register(WeatherCell.nib(), forCellWithReuseIdentifier: WeatherCell.id)
         
@@ -62,11 +65,12 @@ extension WeatherViewController {
 extension WeatherViewController: WeatherRequestorDelegate {
     
     func onDidReceiveData() {
+        HUD.flash(.success, delay: 0.2)
         clouds = WeatherParser.clouds()
         collectionView!.reloadData()
     }
     
     func onDidReceiveError(_ error: Error) {
-        // Todo: show HUD
+        HUD.flash(.label(error.localizedDescription), delay: 1.5)
     }
 }
