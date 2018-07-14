@@ -11,4 +11,5 @@ import Foundation
 protocol WeatherRequestorDelegate {
     func onDidReceiveData()
     func onDidReceiveError(_ error: Error)
+    func onDidReceiveNotModifiedStatusCode()
 }

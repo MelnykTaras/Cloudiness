@@ -25,7 +25,6 @@ final class WeatherDataSource {
     }
     
     public static func update(withDelegate delegate: WeatherRequestorDelegate) {
-        // Todo: check last modified date
         WeatherRequestor.downloadWeather(withDelegate: delegate)
     }
 }

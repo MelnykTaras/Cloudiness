@@ -16,4 +16,12 @@ final class DateFormatterCache {
         dateFormatter.dateFormat = dateFormat
         return dateFormatter
     }()
+    
+    public static let dateComponentsFormatter: DateComponentsFormatter = {
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.day , .hour, .minute, .second]
+        formatter.zeroFormattingBehavior = .dropAll
+        formatter.unitsStyle = .abbreviated
+        return formatter
+    }()
 }

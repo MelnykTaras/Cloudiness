@@ -17,6 +17,7 @@ final class WeatherViewController: UICollectionViewController {
         super.viewDidLoad()
         clouds = WeatherDataSource.fetchWeather(withDelegate: self)
         setup()
+        updateTitle()
     }
     
     private func setup() {
@@ -28,10 +29,17 @@ final class WeatherViewController: UICollectionViewController {
         let layout = collectionView!.collectionViewLayout as! UICollectionViewFlowLayout
         let height = collectionView!.bounds.size.height - navigationController!.navigationBar.bounds.size.height - UIApplication.shared.statusBarFrame.size.height
         layout.itemSize = CGSize(width: 40, height: height)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateData(_:)), name: .UIApplicationWillEnterForeground, object: nil)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    @objc private func updateData(_ sender: Notification) {
+        updateTitle()
+        WeatherDataSource.update(withDelegate: self)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 }
 
@@ -64,11 +72,29 @@ extension WeatherViewController: WeatherRequestorDelegate {
     func onDidReceiveData() {
         clouds = WeatherParser.clouds()
         collectionView!.reloadData()
+        updateTitle()
     }
     
     func onDidReceiveError(_ error: Error) {
         let alert = UIAlertController(title: error.localizedDescription, message: "Code: \(error.code)", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
+        updateTitle()
+    }
+    
+    func onDidReceiveNotModifiedStatusCode() {
+        updateTitle()
+    }
+}
+
+// MARK: - Update Title
+extension WeatherViewController {
+    
+    private func updateTitle() {
+        guard let lastUpdated = WeatherRequestor.lastUpdated else {
+            return
+        }
+        let timeSinceUpdate = -lastUpdated!.timeIntervalSinceNow
+        title = "\(String(withSeconds: timeSinceUpdate)) ago"
     }
 }

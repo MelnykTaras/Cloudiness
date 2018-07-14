@@ -17,11 +17,18 @@ final class WeatherRequestor {
                                      "lon": 28]
     private static var lastModified = UserDefaults.standard.string(forKey: lastModifiedKey) // "Last-Modified": Sat, 14 Jul 2018 07:08:33 GMT
     
+    private static let lastUpdatedKey = "lastUpdated"
+    public static var lastUpdated = UserDefaults.standard.object(forKey: lastUpdatedKey) as? Date?
+    
     public static func downloadWeather(withDelegate delegate: WeatherRequestorDelegate) {
         var HTTPHeaders = ["Accept": "application/json",
                            "Accept-Encoding": "gzip"]
         if let lastModifiedString = lastModified {
             HTTPHeaders["If-Modified-Since"] = lastModifiedString
+        }
+        func refreshLastUpdateDate() {
+            lastUpdated = Date()
+            UserDefaults.standard.setValue(lastUpdated!, forKey: lastUpdatedKey)
         }
         Alamofire.request(weatherURL,
                           method: .get,
@@ -32,9 +39,12 @@ final class WeatherRequestor {
             switch response.response?.statusCode {
             case 304?:
                 print("304 Not Modified")
+                refreshLastUpdateDate()
+                delegate.onDidReceiveNotModifiedStatusCode()
             default:
                 switch response.result {
                 case .success:
+                    refreshLastUpdateDate()
                     processResponse(response, withDelegate: delegate)
                 case .failure(let error):
                     handleError(error, withDelegate: delegate)

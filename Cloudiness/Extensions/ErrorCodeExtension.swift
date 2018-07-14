@@ -1,5 +1,5 @@
 //
-//  ErrorCode.swift
+//  ErrorCodeExtension.swift
 //  Cloudiness
 //
 //  Created by Admin on 7/14/18.
