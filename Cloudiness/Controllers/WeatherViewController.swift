@@ -51,8 +51,13 @@ extension WeatherViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WeatherCell.id, for: indexPath)
-        cell.backgroundColor = UIColor(white: CGFloat(1.0 - (clouds[indexPath.row].cloudiness) / 100.0), alpha: 1.0)
+        let cell: WeatherCell = collectionView.dequeueReusableCell(withReuseIdentifier: WeatherCell.id, for: indexPath) as! WeatherCell
+        let cloud = clouds[indexPath.row]
+        cell.backgroundColor = UIColor(white: CGFloat(1.0 - (cloud.cloudiness) / 100.0), alpha: 1.0)
+        let time = cloud.from.time
+        cell.time.text = time
+        cell.date.text = time == "00" ? cloud.from.date : ""
+        cell.cloudiness.text = String(Int(round(cloud.cloudiness)))
         return cell
     }
 }

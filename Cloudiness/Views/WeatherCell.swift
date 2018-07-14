@@ -10,6 +10,10 @@ import UIKit
 
 final class WeatherCell: UICollectionViewCell {
     
+    @IBOutlet weak var time: UILabel!
+    @IBOutlet weak var date: UILabel!
+    @IBOutlet weak var cloudiness: UILabel!
+    
     static let id = "WeatherCellId"
     
     static func nib() -> UINib {
