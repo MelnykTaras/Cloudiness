@@ -1,5 +1,5 @@
 //
-//  WeatherRequestor.swift
+//  Requestor.swift
 //  Cloudiness
 //
 //  Created by Admin on 7/13/18.
@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-final class WeatherRequestor {
+final class Requestor {
     
     private static let lastModifiedKey = "Last-Modified"
     private static let weatherURL = "https://api.met.no/weatherapi/locationforecastlts/1.3/"
@@ -22,7 +22,7 @@ final class WeatherRequestor {
     private static let lastUpdatedKey = "lastUpdated"
     public static var lastUpdated = UserDefaults.standard.object(forKey: lastUpdatedKey) as? Date?
     
-    public static func downloadWeather(withDelegate delegate: WeatherRequestorDelegate) {
+    public static func downloadWeather(withDelegate delegate: RequestorDelegate) {
         var HTTPHeaders = ["Accept": "application/json",
                            "Accept-Encoding": "gzip"]
         if let lastModifiedString = lastModified {
@@ -58,7 +58,7 @@ final class WeatherRequestor {
         }
     }
     
-    private static func handleStatusCode(_ statusCode: HTTPStatusErrorCode, xErrorHeader: String?, withDelegate delegate: WeatherRequestorDelegate) {
+    private static func handleStatusCode(_ statusCode: HTTPStatusErrorCode, xErrorHeader: String?, withDelegate delegate: RequestorDelegate) {
         var userInfo = ["Description": statusCode.description()]
         if let xHeader = xErrorHeader {
             userInfo["xErrorDescription"] = HTTPStatusErrorCode.xErrorDescription(xErrorHeader: xHeader)
@@ -67,12 +67,12 @@ final class WeatherRequestor {
         handleError(error, withDelegate: delegate)
     }
     
-    private static func handleError(_ error: Error, withDelegate delegate: WeatherRequestorDelegate) {
+    private static func handleError(_ error: Error, withDelegate delegate: RequestorDelegate) {
         delegate.onDidReceiveError(error)
     }
     
-    private static func processResponse(_ response: DataResponse<String>, withDelegate delegate: WeatherRequestorDelegate) {
-        WeatherFileManager.saveToFile(response.data!)
+    private static func processResponse(_ response: DataResponse<String>, withDelegate delegate: RequestorDelegate) {
+        WFileManager.saveToFile(response.data!)
         lastModified = response.response!.allHeaderFields[lastModifiedKey] as? String
         UserDefaults.standard.setValue(lastModified, forKey: lastModifiedKey)
         delegate.onDidReceiveData()

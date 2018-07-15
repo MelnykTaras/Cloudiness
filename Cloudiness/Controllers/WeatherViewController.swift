@@ -15,7 +15,7 @@ final class WeatherViewController: UICollectionViewController {
     // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        clouds = WeatherDataSource.fetchWeather(withDelegate: self)
+        clouds = DataSource.fetchWeather(withDelegate: self)
         setup()
         updateTitle()
     }
@@ -35,7 +35,7 @@ final class WeatherViewController: UICollectionViewController {
     
     @objc private func updateData(_ sender: Notification) {
         updateTitle()
-        WeatherDataSource.update(withDelegate: self)
+        DataSource.update(withDelegate: self)
     }
     
     deinit {
@@ -71,11 +71,11 @@ extension WeatherViewController {
     }
 }
 
-// MARK: - WeatherRequestorDelegate
-extension WeatherViewController: WeatherRequestorDelegate {
+// MARK: - RequestorDelegate
+extension WeatherViewController: RequestorDelegate {
     
     func onDidReceiveData() {
-        clouds = WeatherParser.clouds()
+        clouds = Parser.clouds()
         collectionView!.reloadData()
         updateTitle()
     }
@@ -90,7 +90,7 @@ extension WeatherViewController: WeatherRequestorDelegate {
     }
 }
 
-// MARK: - WeatherRequestorDelegate - Helpers
+// MARK: - RequestorDelegate - Helpers
 extension WeatherViewController {
     private func showAlert(withError error: Error) {
         var message = "\(error.domain): \(error.code)"
@@ -108,7 +108,7 @@ extension WeatherViewController {
 extension WeatherViewController {
     
     private func updateTitle() {
-        guard let lastUpdated = WeatherRequestor.lastUpdated else {
+        guard let lastUpdated = Requestor.lastUpdated else {
             return
         }
         let timeSinceUpdate = -lastUpdated!.timeIntervalSinceNow

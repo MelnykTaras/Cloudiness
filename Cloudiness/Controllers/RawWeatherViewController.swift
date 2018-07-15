@@ -18,6 +18,6 @@ final class RawWeatherViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        textView.text = WeatherDataSource.json()
+        textView.text = DataSource.json()
     }
 }

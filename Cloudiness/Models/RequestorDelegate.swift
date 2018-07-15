@@ -1,5 +1,5 @@
 //
-//  WeatherRequestorDelegate.swift
+//  RequestorDelegate.swift
 //  Cloudiness
 //
 //  Created by Admin on 7/14/18.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol WeatherRequestorDelegate {
+protocol RequestorDelegate {
     func onDidReceiveData()
     func onDidReceiveError(_ error: Error)
     func onDidReceiveNotModifiedStatusCode()

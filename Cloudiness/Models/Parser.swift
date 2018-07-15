@@ -1,5 +1,5 @@
 //
-//  WeatherParser.swift
+//  Parser.swift
 //  Cloudiness
 //
 //  Created by Admin on 7/14/18.
@@ -9,11 +9,11 @@
 import Foundation
 import SwiftyJSON
 
-final class WeatherParser {
+final class Parser {
     
     static func clouds() -> [Cloud] {
         var clouds = [Cloud]()
-        guard let jsonString = WeatherFileManager.fileContent() else {
+        guard let jsonString = WFileManager.fileContent() else {
             return clouds
         }
         let json = JSON(parseJSON: jsonString)

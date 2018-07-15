@@ -1,5 +1,5 @@
 //
-//  WeatherFileManager.swift
+//  WFileManager.swift
 //  Cloudiness
 //
 //  Created by Admin on 7/14/18.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class WeatherFileManager {
+final class WFileManager {
     private static let filename = "Weather.json"
     private static let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
     private static let fileURL = documentDirectory.appendingPathComponent(filename)

@@ -22,7 +22,7 @@ enum HTTPStatusErrorCode: Int {
     case serviceUnavailable        = 503
     
     private static func descriptions() -> [String: String] {
-        return WeatherFileManager.plistDictionary(byFilename: "HTTPStatusCodeDescription")!
+        return WFileManager.plistDictionary(byFilename: "HTTPStatusCodeDescription")!
     }
     
     func description() -> String {
@@ -35,7 +35,7 @@ enum HTTPStatusErrorCode: Int {
     }
     
     private static func xErrorDescriptions() -> [String: String] {
-        return WeatherFileManager.plistDictionary(byFilename: "XErrorClassResponseHeaderDescription")!
+        return WFileManager.plistDictionary(byFilename: "XErrorClassResponseHeaderDescription")!
     }
     
     static func xErrorDescription(xErrorHeader: String) -> String {
