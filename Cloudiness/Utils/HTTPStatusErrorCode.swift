@@ -9,7 +9,6 @@
 import Foundation
 
 enum HTTPStatusErrorCode: Int {
-//    case success = 200
     case nonAuthorativeInformation = 203
     case notModified = 304
     case badRequest = 400

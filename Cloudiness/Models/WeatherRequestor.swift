@@ -13,12 +13,11 @@ final class WeatherRequestor {
     
     private static let lastModifiedKey = "Last-Modified"
     private static let weatherURL = "https://api.met.no/weatherapi/locationforecastlts/1.3/"
-//    private static let weatherURL = "https://httpstat.us/400" // to test http status codes
     private static let parameters = ["lat": 49,
                                      "lon": 28,
                                      "msl": 240]
 
-    private static var lastModified = UserDefaults.standard.string(forKey: lastModifiedKey) // "Last-Modified": Sat, 14 Jul 2018 07:08:33 GMT
+    private static var lastModified = UserDefaults.standard.string(forKey: lastModifiedKey)
     
     private static let lastUpdatedKey = "lastUpdated"
     public static var lastUpdated = UserDefaults.standard.object(forKey: lastUpdatedKey) as? Date?
