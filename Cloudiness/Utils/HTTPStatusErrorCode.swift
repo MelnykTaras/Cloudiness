@@ -10,16 +10,16 @@ import Foundation
 
 enum HTTPStatusErrorCode: Int {
     case nonAuthorativeInformation = 203
-    case notModified = 304
-    case badRequest = 400
-    case unauthorized = 401
-    case notFound = 404
-    case unprocessableEntity = 422
-    case tooManyRequests = 429
-    case clientClosedRequest = 499
-    case internalServerError = 500
-    case badGateway = 502
-    case serviceUnavailable = 503
+    case notModified               = 304
+    case badRequest                = 400
+    case unauthorized              = 401
+    case notFound                  = 404
+    case unprocessableEntity       = 422
+    case tooManyRequests           = 429
+    case clientClosedRequest       = 499
+    case internalServerError       = 500
+    case badGateway                = 502
+    case serviceUnavailable        = 503
     
     private static func descriptions() -> [String: String] {
         return WeatherFileManager.plistDictionary(byFilename: "HTTPStatusCodeDescription")!
