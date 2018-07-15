@@ -81,9 +81,7 @@ extension WeatherViewController: WeatherRequestorDelegate {
     }
     
     func onDidReceiveError(_ error: Error) {
-        let alert = UIAlertController(title: error.localizedDescription, message: "Code: \(error.code)", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+        showAlert(withError: error)
         updateTitle()
     }
     
@@ -92,7 +90,21 @@ extension WeatherViewController: WeatherRequestorDelegate {
     }
 }
 
-// MARK: - Update Title
+// MARK: - WeatherRequestorDelegate - Helpers
+extension WeatherViewController {
+    private func showAlert(withError error: Error) {
+        var message = "\(error.domain): \(error.code)"
+        let userInfo = error.userInfo
+        for (_, value) in userInfo {
+            message += "\n\n\(value)"
+        }
+        let alert = UIAlertController(title: error.localizedDescription, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+}
+
+// MARK: - Title
 extension WeatherViewController {
     
     private func updateTitle() {

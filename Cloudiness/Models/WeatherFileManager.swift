@@ -23,10 +23,17 @@ final class WeatherFileManager {
     
     public static func fileContent() -> String? {
         do {
-            let jsonString = try String(contentsOf: fileURL, encoding: .ascii)
+            let jsonString = try String(contentsOf: fileURL, encoding: .utf8)
             return jsonString
         } catch {
             return nil
         }
+    }
+    
+    public static func plistDictionary(byFilename filename: String) -> [String: String]? {
+        if let path = Bundle.main.path(forResource: filename, ofType: "plist"), let dictionary = NSDictionary(contentsOfFile: path) as? [String: String] {
+            return dictionary
+        }
+        return nil
     }
 }
