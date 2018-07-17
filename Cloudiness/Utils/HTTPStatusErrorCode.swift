@@ -35,7 +35,7 @@ enum HTTPStatusErrorCode: Int {
     }
     
     private static func xErrorDescriptions() -> [String: String] {
-        return WFileManager.plistDictionary(byFilename: "XErrorClassResponseHeaderDescription")!
+        return WFileManager.plistDictionary(byFilename: "XErrorHeaderDescription")!
     }
     
     static func xErrorDescription(xErrorHeader: String) -> String {
