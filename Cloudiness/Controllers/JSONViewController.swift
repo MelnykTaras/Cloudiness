@@ -1,5 +1,5 @@
 //
-//  RawWeatherViewController.swift
+//  JSONViewController.swift
 //  Cloudiness
 //
 //  Created by Admin on 7/13/18.
@@ -8,12 +8,12 @@
 
 import UIKit
 
-final class RawWeatherViewController: UIViewController {
+final class JSONViewController: UIViewController {
 
     @IBOutlet weak var textView: UITextView!
     
     convenience init() {
-        self.init(nibName: "RawWeatherViewController", bundle:nil)
+        self.init(nibName: "JSONViewController", bundle:nil)
     }
     
     override func viewDidLoad() {

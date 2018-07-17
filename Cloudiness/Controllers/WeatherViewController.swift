@@ -101,8 +101,8 @@ extension WeatherViewController {
     }
     
     @IBAction func showRawWeatherData(_ sender: UIBarButtonItem) {
-        let rawWeatherViewController = RawWeatherViewController()
-        self.navigationController?.pushViewController(rawWeatherViewController, animated: true)
+        let jsonViewController = JSONViewController()
+        self.navigationController?.pushViewController(jsonViewController, animated: true)
     }
     
     @IBAction func addLocation(_ sender: UIButton) {
