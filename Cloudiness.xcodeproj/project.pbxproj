@@ -16,7 +16,6 @@
 		84AE0D6220FA02ED00A29658 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AE0D6120FA02ED00A29658 /* DateExtension.swift */; };
 		84AE0D6520FA03B900A29658 /* DateFormatterCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AE0D6420FA03B900A29658 /* DateFormatterCache.swift */; };
 		84AE0D6720FA0C7D00A29658 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AE0D6620FA0C7D00A29658 /* Parser.swift */; };
-		84AE0D8B20FA2C7900A29658 /* RequestorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AE0D8A20FA2C7900A29658 /* RequestorDelegate.swift */; };
 		84AE0D8D20FA477700A29658 /* ErrorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AE0D8C20FA477700A29658 /* ErrorExtension.swift */; };
 		84AE0D8F20FA4BA000A29658 /* ErrorCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AE0D8E20FA4BA000A29658 /* ErrorCode.swift */; };
 		84AE0D9120FA780E00A29658 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AE0D9020FA780E00A29658 /* StringExtension.swift */; };
@@ -50,7 +49,6 @@
 		84AE0D6120FA02ED00A29658 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		84AE0D6420FA03B900A29658 /* DateFormatterCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterCache.swift; sourceTree = "<group>"; };
 		84AE0D6620FA0C7D00A29658 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
-		84AE0D8A20FA2C7900A29658 /* RequestorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestorDelegate.swift; sourceTree = "<group>"; };
 		84AE0D8C20FA477700A29658 /* ErrorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorExtension.swift; sourceTree = "<group>"; };
 		84AE0D8E20FA4BA000A29658 /* ErrorCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorCode.swift; sourceTree = "<group>"; };
 		84AE0D9020FA780E00A29658 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
@@ -177,7 +175,6 @@
 			children = (
 				84057CF720F8F79F006EF634 /* DataSource.swift */,
 				84057CF920F8FDC8006EF634 /* Requestor.swift */,
-				84AE0D8A20FA2C7900A29658 /* RequestorDelegate.swift */,
 				84AE0D5C20F9E57400A29658 /* WFileManager.swift */,
 				84AE0D6620FA0C7D00A29658 /* Parser.swift */,
 				84AE0D5E20FA003000A29658 /* Cloud.swift */,
@@ -348,7 +345,6 @@
 				84AE0D6520FA03B900A29658 /* DateFormatterCache.swift in Sources */,
 				84AE0D6220FA02ED00A29658 /* DateExtension.swift in Sources */,
 				84AE0D8F20FA4BA000A29658 /* ErrorCode.swift in Sources */,
-				84AE0D8B20FA2C7900A29658 /* RequestorDelegate.swift in Sources */,
 				845DA76820F719F9008F841E /* WeatherCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

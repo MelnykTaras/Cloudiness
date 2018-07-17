@@ -9,6 +9,12 @@
 import Foundation
 import Alamofire
 
+protocol RequestorDelegate {
+    func onDidReceiveData()
+    func onDidReceiveError(_ error: Error)
+    func onDidReceiveNotModifiedStatusCode()
+}
+
 final class Requestor {
     
     private static let weatherURL = "https://api.met.no/weatherapi/locationforecastlts/1.3/"
