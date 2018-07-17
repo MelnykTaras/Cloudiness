@@ -6,7 +6,6 @@
 //  Copyright © 2018 Taras Melnyk. All rights reserved.
 //
 
-import Foundation
 import SwiftyJSON
 
 final class DataSource {
