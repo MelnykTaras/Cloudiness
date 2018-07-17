@@ -22,7 +22,6 @@ final class WeatherViewController: UIViewController {
     private var clouds: [Cloud]!
     private var locationManager: LocationManager!
     
-    // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         clouds = DataSource.fetchWeather(withDelegate: self)
@@ -30,7 +29,16 @@ final class WeatherViewController: UIViewController {
         updateTitle()
     }
     
-    private func setup() {
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+}
+
+// MARK: - Internal
+
+private extension WeatherViewController {
+    
+    func setup() {
         
         if let locationTitle = UserDefaults.standard.string(forKey: LocationManager.locationTitleKey) {
             cityBarButtonItem.title = locationTitle
@@ -46,17 +54,22 @@ final class WeatherViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(updateData(_:)), name: .UIApplicationWillEnterForeground, object: nil)
     }
     
-    @objc private func updateData(_ sender: Notification) {
+    @objc func updateData(_ sender: Notification) {
         updateTitle()
         DataSource.update(withDelegate: self)
     }
     
-    deinit {
-        NotificationCenter.default.removeObserver(self)
+    func updateTitle() {
+        guard let lastUpdated = Requestor.lastUpdated else {
+            return
+        }
+        let timeSinceUpdate = -lastUpdated.timeIntervalSinceNow
+        title = "\(String(withSeconds: timeSinceUpdate)) ago"
     }
 }
 
 // MARK: - UICollectionViewDataSource
+
 extension WeatherViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -76,6 +89,7 @@ extension WeatherViewController: UICollectionViewDataSource {
 }
 
 // MARK: - Actions
+
 extension WeatherViewController {
     
     @IBAction func changeLocation(_ sender: UIBarButtonItem) {
@@ -99,6 +113,7 @@ extension WeatherViewController {
 }
 
 // MARK: - RequestorDelegate
+
 extension WeatherViewController: RequestorDelegate {
     
     func onDidReceiveData() {
@@ -117,20 +132,8 @@ extension WeatherViewController: RequestorDelegate {
     }
 }
 
-// MARK: - Title
-private extension WeatherViewController {
-    
-    func updateTitle() {
-        guard let lastUpdated = Requestor.lastUpdated else {
-            return
-        }
-        
-        let timeSinceUpdate = -lastUpdated.timeIntervalSinceNow
-        title = "\(String(withSeconds: timeSinceUpdate)) ago"
-    }
-}
-
 // MARK: - LocationManagerDelegate
+
 extension WeatherViewController: LocationManagerDelegate {
     
     func onDidChangeLocation() {
@@ -147,6 +150,8 @@ extension WeatherViewController: LocationManagerDelegate {
         locationManager.stop()
     }
 }
+
+// MARK: - ChangeLocationDelegate
 
 extension WeatherViewController: ChangeLocationDelegate {
     
