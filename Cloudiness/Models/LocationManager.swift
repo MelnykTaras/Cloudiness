@@ -36,10 +36,10 @@ final class LocationManager: NSObject {
         locationManagerDelegate = delegate
         locationManager = CLLocationManager()
         super.init()
+        locationManager.delegate = self
     }
     
     func start() {
-        locationManager.delegate = self
         shouldStartLocationManager = true
         let authorizationStatus = CLLocationManager.authorizationStatus()
         if authorizationStatus == .notDetermined {
@@ -49,17 +49,25 @@ final class LocationManager: NSObject {
         }
     }
     
-    private func startLocationManager() {
+    func stop() {
+        shouldSkipLocations = true // because of async nature of stopUpdatingLocation() method, locations may arrive even after stopping locationManager, so skip them
+        locationManager.stopUpdatingLocation()
+    }
+}
+
+private extension LocationManager {
+    
+    func startLocationManager() {
         shouldStartLocationManager = false
         shouldSkipLocations = true
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { // skip stale cached locations
             self.shouldSkipLocations = false
         }
         locationManager.startUpdatingLocation()
         AlertManager.showAlertRetrievingCurrentLocation(withLocationManagerDelegate: locationManagerDelegate, alertControllerDelegate: self)
     }
     
-    private func saveLocation(_ location: CLLocation?) {
+    func saveLocation(_ location: CLLocation?) {
         stop()
         guard let _location = location else {
             return
@@ -68,19 +76,14 @@ final class LocationManager: NSObject {
         saveCityName(fromLocation: _location)
     }
     
-    func stop() {
-        shouldSkipLocations = true
-        locationManager.stopUpdatingLocation()
-    }
-    
-    private func saveCoordinate(fromLocation location: CLLocation) {
+    func saveCoordinate(fromLocation location: CLLocation) {
         UserDefaults.standard.setValue(Float(location.coordinate.latitude), forKey: LocationManager.latitudeKey)
         UserDefaults.standard.setValue(Float(location.coordinate.longitude), forKey: LocationManager.longitudeKey)
         UserDefaults.standard.setValue(Int(round(location.altitude)), forKey: LocationManager.altitudeKey)
         locationManagerDelegate.onDidChangeLocation()
     }
     
-    private func saveCityName(fromLocation location: CLLocation) {
+    func saveCityName(fromLocation location: CLLocation) {
         Geocoder.geocodeLocation(location: location) { (placemark, _) in
             guard let locationTitle = placemark?.locality else {
                 AlertManager.showAlertToEnterLocationTitle(withDelegate: self.locationManagerDelegate)
