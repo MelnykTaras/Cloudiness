@@ -34,6 +34,7 @@
 		84E2F7FC20F657950066E02F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E2F7FA20F657950066E02F /* LaunchScreen.storyboard */; };
 		84E2F80520F6FF250066E02F /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E2F80420F6FF240066E02F /* WeatherViewController.swift */; };
 		84E7D28920FCB6BF0093CB41 /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E7D28820FCB6BF0093CB41 /* UIAlertControllerExtension.swift */; };
+		84F335A020FE4D3600C3BADC /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F3359F20FE4D3600C3BADC /* UIColorExtension.swift */; };
 		9645E55B28532925B0F1B7C1 /* libPods-Cloudiness.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BDB8F8588D423E31C4DF345C /* libPods-Cloudiness.a */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +70,7 @@
 		84E2F7FD20F657950066E02F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84E2F80420F6FF240066E02F /* WeatherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		84E7D28820FCB6BF0093CB41 /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
+		84F3359F20FE4D3600C3BADC /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		BDB8F8588D423E31C4DF345C /* libPods-Cloudiness.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Cloudiness.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -101,6 +103,7 @@
 				84AE0D9020FA780E00A29658 /* StringExtension.swift */,
 				84DF246F20FB84CB0091601F /* UIButtonExtension.swift */,
 				84E7D28820FCB6BF0093CB41 /* UIAlertControllerExtension.swift */,
+				84F3359F20FE4D3600C3BADC /* UIColorExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				84E7D28920FCB6BF0093CB41 /* UIAlertControllerExtension.swift in Sources */,
 				84DF247220FB994D0091601F /* LocationManager.swift in Sources */,
 				84057CFA20F8FDC8006EF634 /* Requestor.swift in Sources */,
+				84F335A020FE4D3600C3BADC /* UIColorExtension.swift in Sources */,
 				84AE0D5D20F9E57400A29658 /* WFileManager.swift in Sources */,
 				84E2F7F220F657900066E02F /* AppDelegate.swift in Sources */,
 				84057CF820F8F79F006EF634 /* DataSource.swift in Sources */,

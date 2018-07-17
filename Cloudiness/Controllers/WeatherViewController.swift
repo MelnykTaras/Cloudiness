@@ -21,10 +21,12 @@ final class WeatherViewController: UIViewController {
     
     private var clouds: [Cloud]!
     private var locationManager: LocationManager!
+    private var currentHourCellIndex: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         clouds = DataSource.fetchWeather(withDelegate: self)
+        reloadCollectionView()
         setup()
         updateTitle()
     }
@@ -45,17 +47,33 @@ private extension WeatherViewController {
             addLocationButton.isHidden = true
         }
         
-        collectionView!.register(WeatherCell.nib(), forCellWithReuseIdentifier: WeatherCell.id)
+        collectionView.register(WeatherCell.nib(), forCellWithReuseIdentifier: WeatherCell.id)
         
-        let layout = collectionView!.collectionViewLayout as! UICollectionViewFlowLayout
-        let height = collectionView!.bounds.size.height - navigationController!.navigationBar.bounds.size.height - UIApplication.shared.statusBarFrame.size.height
+        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        let height = collectionView.bounds.size.height - navigationController!.navigationBar.bounds.size.height - UIApplication.shared.statusBarFrame.size.height
         layout.itemSize = CGSize(width: 40, height: height)
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateData(_:)), name: .UIApplicationWillEnterForeground, object: nil)
     }
     
+    func reloadCollectionView() {
+        currentHourCellIndex = nil
+        let now = Date()
+        for (index, cloud) in clouds.enumerated().reversed() {
+            if now > cloud.from {
+                currentHourCellIndex = index
+                break
+            }
+        }
+        collectionView.reloadData()
+        if let indexToHighlight = currentHourCellIndex {
+            collectionView.scrollToItem(at: IndexPath(item: indexToHighlight, section: 0), at: .centeredHorizontally, animated: true)
+        }
+    }
+    
     @objc func updateData(_ sender: Notification) {
         updateTitle()
+        reloadCollectionView()
         DataSource.update(withDelegate: self)
     }
     
@@ -84,6 +102,13 @@ extension WeatherViewController: UICollectionViewDataSource {
         cell.time.text = time
         cell.date.text = time == "3" ? cloud.from.date : ""
         cell.cloudiness.text = String(Int(round(cloud.cloudiness)))
+        
+        if indexPath.row == currentHourCellIndex {
+            cell.layer.borderColor = UIColor.lightBlue.cgColor
+            cell.layer.borderWidth = 1
+        } else {
+            cell.layer.borderWidth = 0
+        }
         return cell
     }
 }
@@ -118,7 +143,7 @@ extension WeatherViewController: RequestorDelegate {
     
     func onDidReceiveData() {
         clouds = Parser.clouds()
-        collectionView!.reloadData()
+        reloadCollectionView()
         updateTitle()
     }
     
