@@ -9,9 +9,9 @@
 import Foundation
 
 final class DateFormatterCache {
-    private static let serverDateFormat = "yyyy-MM-dd'T'hh:mm:ss'Z'"
+    private static let serverDateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
     private static let dateFormat = "E dd"
-    private static let timeFormat = "hh"
+    private static let timeFormat = "H"
     
     public static let serverDateFormatter: DateFormatter = {
         let serverDateFormatter = DateFormatter()

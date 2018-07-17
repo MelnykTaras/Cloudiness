@@ -11,18 +11,23 @@ import Alamofire
 
 final class Requestor {
     
-    private static let lastModifiedKey = "Last-Modified"
     private static let weatherURL = "https://api.met.no/weatherapi/locationforecastlts/1.3/"
-    private static let parameters = ["lat": 49,
-                                     "lon": 28,
-                                     "msl": 240]
-
+    
+    private static let lastModifiedKey = "Last-Modified"
     private static var lastModified = UserDefaults.standard.string(forKey: lastModifiedKey)
     
     private static let lastUpdatedKey = "lastUpdated"
-    public static var lastUpdated = UserDefaults.standard.object(forKey: lastUpdatedKey) as? Date?
+    private(set) public static var lastUpdated = UserDefaults.standard.object(forKey: lastUpdatedKey) as? Date
     
     public static func downloadWeather(withDelegate delegate: RequestorDelegate) {
+        guard let latitude  = UserDefaults.standard.object(forKey: LocationManager.latitudeKey) as? Float,
+              let longitude = UserDefaults.standard.object(forKey: LocationManager.longitudeKey) as? Float,
+              let altitude  = UserDefaults.standard.object(forKey: LocationManager.altitudeKey) as? Int else {
+                return
+        }
+        let parameters = ["lat": latitude,
+                          "lon": longitude,
+                          "msl": altitude] as [String : Any]
         var HTTPHeaders = ["Accept": "application/json",
                            "Accept-Encoding": "gzip"]
         if let lastModifiedString = lastModified {

@@ -8,9 +8,19 @@
 
 import UIKit
 
-final class WeatherViewController: UICollectionViewController {
+protocol ChangeLocationDelegate: class {
+    func changeSavedLocation()
+}
 
+final class WeatherViewController: UIViewController {
+
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var addLocationButton: UIButton!
+    @IBOutlet weak var cityBarButtonItem: UIBarButtonItem!
+    @IBOutlet weak var jsonBarButtonItem: UIBarButtonItem!
+    
     private var clouds: [Cloud]!
+    private var locationManager: LocationManager!
     
     // MARK: - View lifecycle
     override func viewDidLoad() {
@@ -21,8 +31,11 @@ final class WeatherViewController: UICollectionViewController {
     }
     
     private func setup() {
-        let rawWeatherButtonItem = UIBarButtonItem(title: "Raw", style: .plain, target: self, action: #selector(showRawWeatherData(_:)))
-        navigationItem.rightBarButtonItem = rawWeatherButtonItem
+        
+        if let locationTitle = UserDefaults.standard.string(forKey: LocationManager.locationTitleKey) {
+            cityBarButtonItem.title = locationTitle
+            addLocationButton.isHidden = true
+        }
         
         collectionView!.register(WeatherCell.nib(), forCellWithReuseIdentifier: WeatherCell.id)
         
@@ -44,19 +57,19 @@ final class WeatherViewController: UICollectionViewController {
 }
 
 // MARK: - UICollectionViewDataSource
-extension WeatherViewController {
+extension WeatherViewController: UICollectionViewDataSource {
     
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return clouds.count
     }
     
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: WeatherCell = collectionView.dequeueReusableCell(withReuseIdentifier: WeatherCell.id, for: indexPath) as! WeatherCell
         let cloud = clouds[indexPath.row]
         cell.backgroundColor = UIColor(white: CGFloat(1.0 - (cloud.cloudiness) / 100.0), alpha: 1.0)
         let time = cloud.from.time
         cell.time.text = time
-        cell.date.text = time == "00" ? cloud.from.date : ""
+        cell.date.text = time == "3" ? cloud.from.date : ""
         cell.cloudiness.text = String(Int(round(cloud.cloudiness)))
         return cell
     }
@@ -65,9 +78,23 @@ extension WeatherViewController {
 // MARK: - Actions
 extension WeatherViewController {
     
-    @objc func showRawWeatherData(_ sender: UIBarButtonItem) {
+    @IBAction func changeLocation(_ sender: UIBarButtonItem) {
+        if let _ = UserDefaults.standard.string(forKey: LocationManager.locationTitleKey) {
+            AlertManager.showAlertChangeLocation(withDelegate: self)
+        } else {
+            changeSavedLocation()
+        }
+    }
+    
+    @IBAction func showRawWeatherData(_ sender: UIBarButtonItem) {
         let rawWeatherViewController = RawWeatherViewController()
         self.navigationController?.pushViewController(rawWeatherViewController, animated: true)
+    }
+    
+    @IBAction func addLocation(_ sender: UIButton) {
+        sender.isEnabled = false
+        locationManager = LocationManager(withDelegate: self)
+        locationManager.start()
     }
 }
 
@@ -81,7 +108,7 @@ extension WeatherViewController: RequestorDelegate {
     }
     
     func onDidReceiveError(_ error: Error) {
-        showAlert(withError: error)
+        AlertManager.showAlert(withError: error)
         updateTitle()
     }
     
@@ -90,28 +117,41 @@ extension WeatherViewController: RequestorDelegate {
     }
 }
 
-// MARK: - RequestorDelegate - Helpers
-extension WeatherViewController {
-    private func showAlert(withError error: Error) {
-        var message = "\(error.domain): \(error.code)"
-        let userInfo = error.userInfo
-        for (_, value) in userInfo {
-            message += "\n\n\(value)"
-        }
-        let alert = UIAlertController(title: error.localizedDescription, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-    }
-}
-
 // MARK: - Title
-extension WeatherViewController {
+private extension WeatherViewController {
     
-    private func updateTitle() {
+    func updateTitle() {
         guard let lastUpdated = Requestor.lastUpdated else {
             return
         }
-        let timeSinceUpdate = -lastUpdated!.timeIntervalSinceNow
+        
+        let timeSinceUpdate = -lastUpdated.timeIntervalSinceNow
         title = "\(String(withSeconds: timeSinceUpdate)) ago"
+    }
+}
+
+// MARK: - LocationManagerDelegate
+extension WeatherViewController: LocationManagerDelegate {
+    
+    func onDidChangeLocation() {
+        DataSource.update(withDelegate: self)
+        addLocationButton.isHidden = true
+    }
+    
+    func onDidAddLocationTitle() {
+        cityBarButtonItem.title = UserDefaults.standard.string(forKey: LocationManager.locationTitleKey)
+    }
+    
+    func cancelRetreivingLocation() {
+        addLocationButton.isEnabled = true
+        locationManager.stop()
+    }
+}
+
+extension WeatherViewController: ChangeLocationDelegate {
+    
+    func changeSavedLocation() {
+        locationManager = LocationManager(withDelegate: self)
+        locationManager.start()
     }
 }
