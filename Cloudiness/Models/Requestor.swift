@@ -23,9 +23,9 @@ final class Requestor {
     private static var lastModified = UserDefaults.standard.string(forKey: lastModifiedKey)
     
     private static let lastUpdatedKey = "lastUpdated"
-    private(set) public static var lastUpdated = UserDefaults.standard.object(forKey: lastUpdatedKey) as? Date
+    private(set) static var lastUpdated = UserDefaults.standard.object(forKey: lastUpdatedKey) as? Date
     
-    public static func downloadWeather(withDelegate delegate: RequestorDelegate) {
+    static func downloadWeather(withDelegate delegate: RequestorDelegate) {
         guard let latitude  = UserDefaults.standard.object(forKey: LocationManager.latitudeKey) as? Float,
               let longitude = UserDefaults.standard.object(forKey: LocationManager.longitudeKey) as? Float,
               let altitude  = UserDefaults.standard.object(forKey: LocationManager.altitudeKey) as? Int else {

@@ -21,10 +21,10 @@ protocol AlertControllerDelegate: class {
 
 final class LocationManager: NSObject {
     
-    public static let locationTitleKey = "locationTitle"
-    public static let latitudeKey = "latitude"
-    public static let longitudeKey = "longitude"
-    public static let altitudeKey = "altitude"
+    static let locationTitleKey = "locationTitle"
+    static let latitudeKey = "latitude"
+    static let longitudeKey = "longitude"
+    static let altitudeKey = "altitude"
     
     private weak var locationManagerDelegate: LocationManagerDelegate!
     private let locationManager: CLLocationManager!

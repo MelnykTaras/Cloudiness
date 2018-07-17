@@ -13,28 +13,28 @@ final class DateFormatterCache {
     private static let dateFormat = "E dd"
     private static let timeFormat = "H"
     
-    public static let serverDateFormatter: DateFormatter = {
+    static let serverDateFormatter: DateFormatter = {
         let serverDateFormatter = DateFormatter()
         serverDateFormatter.dateFormat = serverDateFormat
         serverDateFormatter.timeZone = TimeZone(abbreviation: "GMT")
         return serverDateFormatter
     }()
     
-    public static let dateFormatter: DateFormatter = {
+    static let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = dateFormat
         dateFormatter.timeZone = TimeZone.current
         return dateFormatter
     }()
     
-    public static let timeFormatter: DateFormatter = {
+    static let timeFormatter: DateFormatter = {
         let timeFormatter = DateFormatter()
         timeFormatter.dateFormat = timeFormat
         timeFormatter.timeZone = TimeZone.current
         return timeFormatter
     }()
     
-    public static let dateComponentsFormatter: DateComponentsFormatter = {
+    static let dateComponentsFormatter: DateComponentsFormatter = {
         let formatter = DateComponentsFormatter()
         formatter.allowedUnits = [.day , .hour, .minute, .second]
         formatter.zeroFormattingBehavior = .dropAll

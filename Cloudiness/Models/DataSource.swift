@@ -11,12 +11,12 @@ import SwiftyJSON
 
 final class DataSource {
     
-    public static func fetchWeather(withDelegate delegate: RequestorDelegate) -> [Cloud] {
+    static func fetchWeather(withDelegate delegate: RequestorDelegate) -> [Cloud] {
         update(withDelegate: delegate)
         return Parser.clouds()
     }
     
-    public static func json() -> String {
+    static func json() -> String {
         guard let jsonString = WFileManager.fileContent() else {
             return ""
         }
@@ -24,7 +24,7 @@ final class DataSource {
         return json.description
     }
     
-    public static func update(withDelegate delegate: RequestorDelegate) {
+    static func update(withDelegate delegate: RequestorDelegate) {
         Requestor.downloadWeather(withDelegate: delegate)
     }
 }
