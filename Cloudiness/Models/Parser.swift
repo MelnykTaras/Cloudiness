@@ -16,12 +16,12 @@ final class Parser {
             return clouds
         }
         let json = JSON(parseJSON: jsonString)
-        let array = json.dictionary!["product"]!.dictionary!["time"]!.array!
+        let array = json["product"]["time"].array!
         for entry in array {
-            guard let cloudiness = entry.dictionary?["location"]?.dictionary?["cloudiness"]?.dictionary?["percent"]?.string else {
+            guard let cloudiness = entry["location"]["cloudiness"]["percent"].string else {
                 continue
             }
-            let from = entry.dictionary!["from"]!.string!
+            let from = entry["from"].string!
             let cloud = Cloud(from: from, cloudiness: cloudiness)
             clouds.append(cloud)
         }
