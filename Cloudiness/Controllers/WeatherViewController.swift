@@ -22,6 +22,8 @@ final class WeatherViewController: UIViewController {
     private var clouds: [Cloud]!
     private var locationManager: LocationManager!
     private var currentHourCellIndex: Int?
+    private var grayscaleFrame: CGRect?
+    private var curve: CAShapeLayer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,9 +67,31 @@ private extension WeatherViewController {
                 break
             }
         }
+
         collectionView.reloadData()
-        if let indexToHighlight = currentHourCellIndex {
-            collectionView.scrollToItem(at: IndexPath(item: indexToHighlight, section: 0), at: .centeredHorizontally, animated: true)
+        DispatchQueue.main.async(execute: {
+            self.collectionView.performBatchUpdates(nil, completion: { _ in
+                if self.grayscaleFrame == nil {
+                    let cell = self.collectionView.cellForItem(at: IndexPath(row: self.currentHourCellIndex ?? 0, section: 0))
+                    let wcell = cell as! WeatherCell
+                    let grayscale = wcell.grayscale!
+                    self.grayscaleFrame = grayscale.frame
+                }
+                self.updateCurve()
+                if let indexToHighlight = self.currentHourCellIndex {
+                    self.collectionView.scrollToItem(at: IndexPath(item: indexToHighlight, section: 0), at: .centeredHorizontally, animated: true)
+                }
+            })
+        })
+    }
+    
+    func updateCurve() {
+        if let curve = curve {
+            curve.removeFromSuperlayer()
+        }
+        curve = collectionView.curve(fromGrayscaleFrame: grayscaleFrame!, clouds)
+        if let curve = curve {
+            collectionView.layer.addSublayer(curve)
         }
     }
     
@@ -95,16 +119,23 @@ extension WeatherViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        print(#function)
         let cell: WeatherCell = collectionView.dequeueReusableCell(withReuseIdentifier: WeatherCell.id, for: indexPath) as! WeatherCell
         let cloud = clouds[indexPath.row]
-        cell.backgroundColor = UIColor(white: CGFloat(1.0 - (cloud.cloudiness) / 100.0), alpha: 1.0)
+        let backgroundWhite = CGFloat(1.0 - (cloud.cloudiness) / 100.0)
+        cell.grayscale.backgroundColor = UIColor(white: backgroundWhite, alpha: 1.0)
         let time = cloud.from.time
         cell.time.text = time
-        cell.date.text = time == "3" ? cloud.from.date : ""
+        if time == "3" {
+            cell.date.text = cloud.from.date
+            cell.date.textColor = backgroundWhite < 0.5 ? UIColor.white : UIColor.black
+        } else {
+            cell.date.text = nil
+        }
         cell.cloudiness.text = String(Int(round(cloud.cloudiness)))
         
         if indexPath.row == currentHourCellIndex {
-            cell.layer.borderColor = UIColor.lightBlue.cgColor
+            cell.layer.borderColor = UIColor.darkGreen.cgColor
             cell.layer.borderWidth = 1
         } else {
             cell.layer.borderWidth = 0

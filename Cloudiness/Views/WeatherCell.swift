@@ -13,6 +13,7 @@ final class WeatherCell: UICollectionViewCell {
     @IBOutlet weak var time: UILabel!
     @IBOutlet weak var date: UILabel!
     @IBOutlet weak var cloudiness: UILabel!
+    @IBOutlet weak var grayscale: UIView!
     
     static let id = "WeatherCellId"
     

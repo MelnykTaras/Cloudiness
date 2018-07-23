@@ -11,6 +11,8 @@
 		84057CFA20F8FDC8006EF634 /* Requestor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84057CF920F8FDC8006EF634 /* Requestor.swift */; };
 		845DA76820F719F9008F841E /* WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845DA76620F719F8008F841E /* WeatherCell.swift */; };
 		845DA76920F719F9008F841E /* WeatherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845DA76720F719F9008F841E /* WeatherCell.xib */; };
+		846B610F20FF82B000FAF46F /* UIBezierPathExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846B610E20FF82B000FAF46F /* UIBezierPathExtension.swift */; };
+		84AD17D720FF0B07000999A8 /* UICollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AD17D620FF0B07000999A8 /* UICollectionViewExtension.swift */; };
 		84AE0D5D20F9E57400A29658 /* WFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AE0D5C20F9E57400A29658 /* WFileManager.swift */; };
 		84AE0D5F20FA003000A29658 /* Cloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AE0D5E20FA003000A29658 /* Cloud.swift */; };
 		84AE0D6220FA02ED00A29658 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AE0D6120FA02ED00A29658 /* DateExtension.swift */; };
@@ -45,6 +47,8 @@
 		84057CF920F8FDC8006EF634 /* Requestor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requestor.swift; sourceTree = "<group>"; };
 		845DA76620F719F8008F841E /* WeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCell.swift; sourceTree = "<group>"; };
 		845DA76720F719F9008F841E /* WeatherCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherCell.xib; sourceTree = "<group>"; };
+		846B610E20FF82B000FAF46F /* UIBezierPathExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBezierPathExtension.swift; sourceTree = "<group>"; };
+		84AD17D620FF0B07000999A8 /* UICollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtension.swift; sourceTree = "<group>"; };
 		84AE0D5C20F9E57400A29658 /* WFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WFileManager.swift; sourceTree = "<group>"; };
 		84AE0D5E20FA003000A29658 /* Cloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cloud.swift; sourceTree = "<group>"; };
 		84AE0D6120FA02ED00A29658 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
@@ -104,6 +108,8 @@
 				84DF246F20FB84CB0091601F /* UIButtonExtension.swift */,
 				84E7D28820FCB6BF0093CB41 /* UIAlertControllerExtension.swift */,
 				84F3359F20FE4D3600C3BADC /* UIColorExtension.swift */,
+				84AD17D620FF0B07000999A8 /* UICollectionViewExtension.swift */,
+				846B610E20FF82B000FAF46F /* UIBezierPathExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -329,6 +335,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				846B610F20FF82B000FAF46F /* UIBezierPathExtension.swift in Sources */,
+				84AD17D720FF0B07000999A8 /* UICollectionViewExtension.swift in Sources */,
 				84AE0D8D20FA477700A29658 /* ErrorExtension.swift in Sources */,
 				84DF247420FBA42D0091601F /* Geocoder.swift in Sources */,
 				84E2F80520F6FF250066E02F /* WeatherViewController.swift in Sources */,
