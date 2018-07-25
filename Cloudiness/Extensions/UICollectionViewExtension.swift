@@ -10,11 +10,11 @@ import UIKit
 
 extension UICollectionView {
     
-    func curve(fromGrayscaleFrame frame: CGRect, _ clouds: [Cloud]) -> CAShapeLayer? {
-        guard clouds.count > 1 else {
+    func curve(fromGrayscaleFrame frame: CGRect?, _ clouds: [Cloud]) -> CAShapeLayer? {
+        guard let frame = frame, clouds.count > 1 else {
             return nil
         }
-        let points = controlPoints(fromFirstGrayscaleFrame: frame, clouds)
+        let points = controlPoints(fromGrayscaleFrame: frame, clouds)
         let layer = CAShapeLayer()
         layer.path = UIBezierPath.cubicCurvedPath(withPoints: points).cgPath
         layer.lineWidth = 4
@@ -25,7 +25,7 @@ extension UICollectionView {
         return layer
     }
     
-    private func controlPoints(fromFirstGrayscaleFrame frame: CGRect, _ clouds: [Cloud]) -> [CGPoint] {
+    private func controlPoints(fromGrayscaleFrame frame: CGRect, _ clouds: [Cloud]) -> [CGPoint] {
         let width = frame.size.width
         let start = frame.origin.y
         let height = frame.size.height

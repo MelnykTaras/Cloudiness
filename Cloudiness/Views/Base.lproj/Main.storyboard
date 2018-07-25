@@ -15,8 +15,9 @@
         <scene sceneID="TYk-fu-zqm">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bsg-la-oja" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mFv-ck-ef4">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="mFv-ck-ef4">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -34,11 +35,11 @@
             <objects>
                 <viewController id="0fI-pN-4gx" customClass="WeatherViewController" customModule="Cloudiness" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oH4-rI-2HM">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9Vh-Ac-CbL">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9Vh-Ac-CbL" customClass="FlexibleCollectionView" customModule="Cloudiness" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="6wb-T3-AO0">
                                     <size key="itemSize" width="40" height="504"/>
@@ -52,7 +53,7 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PXI-5Q-aGe">
-                                <rect key="frame" x="80" y="236" width="160" height="160"/>
+                                <rect key="frame" x="80" y="172" width="160" height="160"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.75" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="2cu-GT-xc3"/>
@@ -78,10 +79,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="9Vh-Ac-CbL" firstAttribute="top" secondItem="oH4-rI-2HM" secondAttribute="top" id="4m9-JW-1QK"/>
                             <constraint firstItem="9Vh-Ac-CbL" firstAttribute="leading" secondItem="oH4-rI-2HM" secondAttribute="leading" id="8AW-gT-OXx"/>
                             <constraint firstItem="9Vh-Ac-CbL" firstAttribute="trailing" secondItem="oH4-rI-2HM" secondAttribute="trailing" id="CYU-fJ-FHV"/>
                             <constraint firstItem="9Vh-Ac-CbL" firstAttribute="bottom" secondItem="oH4-rI-2HM" secondAttribute="bottom" id="Dl4-jC-7yt"/>
+                            <constraint firstItem="9Vh-Ac-CbL" firstAttribute="top" secondItem="RO2-h7-oLG" secondAttribute="top" id="Iyu-Zk-6eV"/>
                             <constraint firstItem="PXI-5Q-aGe" firstAttribute="centerY" secondItem="RO2-h7-oLG" secondAttribute="centerY" id="PBt-zV-iPa"/>
                             <constraint firstItem="PXI-5Q-aGe" firstAttribute="centerX" secondItem="RO2-h7-oLG" secondAttribute="centerX" id="ivl-mS-3Nq"/>
                         </constraints>

@@ -21,6 +21,7 @@
 		84AE0D8D20FA477700A29658 /* ErrorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AE0D8C20FA477700A29658 /* ErrorExtension.swift */; };
 		84AE0D8F20FA4BA000A29658 /* ErrorCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AE0D8E20FA4BA000A29658 /* ErrorCode.swift */; };
 		84AE0D9120FA780E00A29658 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AE0D9020FA780E00A29658 /* StringExtension.swift */; };
+		84C425B321076FD60043D2D4 /* FlexibleCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C425B221076FD60043D2D4 /* FlexibleCollectionView.swift */; };
 		84DF143820F8E9B300E0B471 /* JSONViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF143620F8E9B300E0B471 /* JSONViewController.swift */; };
 		84DF143920F8E9B300E0B471 /* JSONViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84DF143720F8E9B300E0B471 /* JSONViewController.xib */; };
 		84DF246A20FB31400091601F /* HTTPStatusErrorCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF246920FB31400091601F /* HTTPStatusErrorCode.swift */; };
@@ -57,6 +58,7 @@
 		84AE0D8C20FA477700A29658 /* ErrorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorExtension.swift; sourceTree = "<group>"; };
 		84AE0D8E20FA4BA000A29658 /* ErrorCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorCode.swift; sourceTree = "<group>"; };
 		84AE0D9020FA780E00A29658 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		84C425B221076FD60043D2D4 /* FlexibleCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexibleCollectionView.swift; sourceTree = "<group>"; };
 		84DF143620F8E9B300E0B471 /* JSONViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONViewController.swift; sourceTree = "<group>"; };
 		84DF143720F8E9B300E0B471 /* JSONViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JSONViewController.xib; sourceTree = "<group>"; };
 		84DF246920FB31400091601F /* HTTPStatusErrorCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPStatusErrorCode.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				84DF143720F8E9B300E0B471 /* JSONViewController.xib */,
 				845DA76720F719F9008F841E /* WeatherCell.xib */,
 				845DA76620F719F8008F841E /* WeatherCell.swift */,
+				84C425B221076FD60043D2D4 /* FlexibleCollectionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				84AE0D5F20FA003000A29658 /* Cloud.swift in Sources */,
 				84AE0D6720FA0C7D00A29658 /* Parser.swift in Sources */,
 				84DF247620FBAB3C0091601F /* AlertManager.swift in Sources */,
+				84C425B321076FD60043D2D4 /* FlexibleCollectionView.swift in Sources */,
 				84DF247020FB84CB0091601F /* UIButtonExtension.swift in Sources */,
 				84DF143820F8E9B300E0B471 /* JSONViewController.swift in Sources */,
 				84AE0D6520FA03B900A29658 /* DateFormatterCache.swift in Sources */,

@@ -14,7 +14,7 @@ protocol ChangeLocationDelegate: class {
 
 final class WeatherViewController: UIViewController {
 
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var collectionView: FlexibleCollectionView!
     @IBOutlet weak var addLocationButton: UIButton!
     @IBOutlet weak var cityBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var jsonBarButtonItem: UIBarButtonItem!
@@ -22,14 +22,22 @@ final class WeatherViewController: UIViewController {
     private var clouds: [Cloud]!
     private var locationManager: LocationManager!
     private var currentHourCellIndex: Int?
-    private var grayscaleFrame: CGRect?
+    private var grayscaleFrame: CGRect? {
+        guard let cell = self.collectionView.cellForItem(at: IndexPath(row: self.currentHourCellIndex ?? 0, section: 0)),
+              let weatherCell = cell as? WeatherCell,
+              let grayscaleFrame = weatherCell.grayscale?.frame else {
+            return nil
+        }
+        return grayscaleFrame
+    }
     private var curve: CAShapeLayer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         clouds = DataSource.fetchWeather(withDelegate: self)
-        reloadCollectionView()
         setup()
+        collectionView.updateCellSize()
+        reloadCollectionView()
         updateTitle()
     }
     
@@ -50,11 +58,6 @@ private extension WeatherViewController {
         }
         
         collectionView.register(WeatherCell.nib(), forCellWithReuseIdentifier: WeatherCell.id)
-        
-        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-        let height = collectionView.bounds.size.height - navigationController!.navigationBar.bounds.size.height - UIApplication.shared.statusBarFrame.size.height
-        layout.itemSize = CGSize(width: 40, height: height)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(updateData(_:)), name: .UIApplicationWillEnterForeground, object: nil)
     }
     
@@ -71,12 +74,7 @@ private extension WeatherViewController {
         collectionView.reloadData()
         DispatchQueue.main.async(execute: {
             self.collectionView.performBatchUpdates(nil, completion: { _ in
-                if self.grayscaleFrame == nil {
-                    let cell = self.collectionView.cellForItem(at: IndexPath(row: self.currentHourCellIndex ?? 0, section: 0))
-                    let wcell = cell as! WeatherCell
-                    let grayscale = wcell.grayscale!
-                    self.grayscaleFrame = grayscale.frame
-                }
+                self.collectionView.updateCellSize()
                 self.updateCurve()
                 if let indexToHighlight = self.currentHourCellIndex {
                     self.collectionView.scrollToItem(at: IndexPath(item: indexToHighlight, section: 0), at: .centeredHorizontally, animated: true)
@@ -89,7 +87,7 @@ private extension WeatherViewController {
         if let curve = curve {
             curve.removeFromSuperlayer()
         }
-        curve = collectionView.curve(fromGrayscaleFrame: grayscaleFrame!, clouds)
+        curve = collectionView.curve(fromGrayscaleFrame: grayscaleFrame, clouds)
         if let curve = curve {
             collectionView.layer.addSublayer(curve)
         }
@@ -119,7 +117,6 @@ extension WeatherViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        print(#function)
         let cell: WeatherCell = collectionView.dequeueReusableCell(withReuseIdentifier: WeatherCell.id, for: indexPath) as! WeatherCell
         let cloud = clouds[indexPath.row]
         let backgroundWhite = CGFloat(1.0 - (cloud.cloudiness) / 100.0)
