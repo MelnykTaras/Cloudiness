@@ -50,7 +50,7 @@ final class Requestor {
                     refreshLastUpdateDate()
                     delegate.onDidReceiveNotModifiedStatusCode()
                 default:
-                    let xErrorClassResponseHeader = response.response!.allHeaderFields["X-ErrorClass"] as? String
+                    let xErrorClassResponseHeader = response.response?.allHeaderFields["X-ErrorClass"] as? String
                     handleStatusCode(httpStatusCode, xErrorHeader: xErrorClassResponseHeader, withDelegate: delegate)
                 }
                 return
@@ -83,7 +83,7 @@ final class Requestor {
     
     private static func processResponse(_ response: DataResponse<String>, withDelegate delegate: RequestorDelegate) {
         WFileManager.saveToFile(response.data!)
-        lastModified = response.response!.allHeaderFields[lastModifiedKey] as? String
+        lastModified = response.response?.allHeaderFields[lastModifiedKey] as? String
         UserDefaults.standard.setValue(lastModified, forKey: lastModifiedKey)
         delegate.onDidReceiveData()
     }

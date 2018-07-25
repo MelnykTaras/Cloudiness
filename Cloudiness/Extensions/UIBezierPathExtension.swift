@@ -67,8 +67,8 @@ private extension UIBezierPath {
         }
         let leftMidPoint  = midPointBetweenPoints(p1, p2)
         let rightMidPoint = midPointBetweenPoints(p1, p3)
-        let imaginPoint = mirror(forPoint: rightMidPoint, center: p2)
-        var controlPoint = midPointBetweenPoints(leftMidPoint, imaginPoint!)
+        let mirrorPoint = mirror(forPoint: rightMidPoint, center: p2)
+        var controlPoint = midPointBetweenPoints(leftMidPoint, mirrorPoint!)
         controlPoint.y = clamp(num: controlPoint.y, bounds1: p1.y, bounds2: p2.y)
         let flippedP3 = p2.y + (p2.y - p3.y)
         controlPoint.y = clamp(num: controlPoint.y, bounds1: p2.y, bounds2: flippedP3)
