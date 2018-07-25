@@ -27,10 +27,10 @@ enum HTTPStatusErrorCode: Int {
     
     func description() -> String {
         let descriptions = HTTPStatusErrorCode.descriptions()
-        if let description = descriptions[String(self.rawValue)] {
+        if let description = descriptions[String(rawValue)] {
             return description
         } else {
-            return String(self.rawValue)
+            return String(rawValue)
         }
     }
     

@@ -39,7 +39,7 @@ import UIKit
         }
         get {
             if layer.cornerRadius > 0 {
-                let maxSide = max(self.bounds.size.height, self.bounds.size.width)
+                let maxSide = max(bounds.size.height, bounds.size.width)
                 return max(layer.cornerRadius, maxSide)
             } else {
                 return 0

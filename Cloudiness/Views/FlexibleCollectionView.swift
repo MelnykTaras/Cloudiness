@@ -16,15 +16,15 @@ class FlexibleCollectionView: UICollectionView {
         super.layoutSubviews()
         if isCellSizeAnimationAllowed {
             isCellSizeAnimationAllowed = false
-            self.performBatchUpdates({ updateCellSize() }, completion: { _ in
+            performBatchUpdates({ updateCellSize() }, completion: { _ in
                 self.isCellSizeAnimationAllowed = true
             })
         }
     }
     
     func updateCellSize() {
-        let layout = self.collectionViewLayout as! UICollectionViewFlowLayout
-        let height = self.bounds.size.height
+        let layout = collectionViewLayout as! UICollectionViewFlowLayout
+        let height = bounds.size.height
         layout.itemSize = CGSize(width: 40, height: height)
     }
 }
