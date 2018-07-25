@@ -14,17 +14,11 @@ class FlexibleCollectionView: UICollectionView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        let animationSize = layer.animation(forKey: "bounds.size")
-        guard let animationDuration = animationSize?.duration else {
-            return
-        }
-        
         if isCellSizeAnimationAllowed {
             isCellSizeAnimationAllowed = false
-            self.performBatchUpdates({ updateCellSize() })
-            DispatchQueue.main.asyncAfter(deadline: .now() + animationDuration) {
+            self.performBatchUpdates({ updateCellSize() }, completion: { _ in
                 self.isCellSizeAnimationAllowed = true
-            }
+            })
         }
     }
     
