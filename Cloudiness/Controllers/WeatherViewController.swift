@@ -22,14 +22,7 @@ final class WeatherViewController: UIViewController {
     private var clouds: [Cloud]!
     private var locationManager: LocationManager!
     private var currentHourCellIndex: Int?
-    private var grayscaleFrame: CGRect? {
-        guard let cell = self.collectionView.cellForItem(at: IndexPath(row: self.currentHourCellIndex ?? 0, section: 0)),
-              let weatherCell = cell as? WeatherCell,
-              let grayscaleFrame = weatherCell.grayscale?.frame else {
-            return nil
-        }
-        return grayscaleFrame
-    }
+    private weak var lastUpdatedCell: WeatherCell?
     private var curve: CAShapeLayer?
     
     override func viewDidLoad() {
@@ -63,10 +56,16 @@ private extension WeatherViewController {
     
     func reloadCollectionView() {
         currentHourCellIndex = nil
+        var isForecastOutdated = false
         let now = Date()
         for (index, cloud) in clouds.enumerated().reversed() {
             if now > cloud.from {
-                currentHourCellIndex = index
+                let eightHours: TimeInterval = 8 * 60 * 60
+                if now.timeIntervalSince(cloud.from) > eightHours {
+                    isForecastOutdated = true
+                } else {
+                    currentHourCellIndex = index
+                }
                 break
             }
         }
@@ -76,9 +75,8 @@ private extension WeatherViewController {
             self.collectionView.performBatchUpdates(nil, completion: { _ in
                 self.collectionView.updateCellSize()
                 self.updateCurve()
-                if let indexToHighlight = self.currentHourCellIndex {
-                    self.collectionView.scrollToItem(at: IndexPath(item: indexToHighlight, section: 0), at: .centeredHorizontally, animated: true)
-                }
+                let row = isForecastOutdated ? self.clouds.count - 1 : self.currentHourCellIndex ?? 0
+                self.collectionView.scrollToItem(at: IndexPath(item: row, section: 0), at: .centeredHorizontally, animated: true)
             })
         })
     }
@@ -87,7 +85,7 @@ private extension WeatherViewController {
         if let curve = curve {
             curve.removeFromSuperlayer()
         }
-        curve = collectionView.curve(fromGrayscaleFrame: grayscaleFrame, clouds)
+        curve = collectionView.curve(fromGrayscaleFrame: lastUpdatedCell?.grayscale?.frame, clouds)
         if let curve = curve {
             collectionView.layer.addSublayer(curve)
         }
@@ -137,6 +135,7 @@ extension WeatherViewController: UICollectionViewDataSource {
         } else {
             cell.layer.borderWidth = 0
         }
+        lastUpdatedCell = cell
         return cell
     }
 }
