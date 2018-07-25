@@ -15,14 +15,10 @@ extension Date {
     }
     
     var time: String {
-        get {
-            return DateFormatterCache.timeFormatter.string(from: self)
-        }
+        return DateFormatterCache.timeFormatter.string(from: self)
     }
     
     var date: String {
-        get {
-            return DateFormatterCache.dateFormatter.string(from: self)
-        }
+        return DateFormatterCache.dateFormatter.string(from: self)
     }
 }
