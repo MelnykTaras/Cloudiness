@@ -27,12 +27,10 @@ extension UICollectionView {
     
     private func controlPoints(fromGrayscaleFrame frame: CGRect, _ clouds: [Cloud]) -> [CGPoint] {
         let width = frame.size.width
-        let start = frame.origin.y
-        let height = frame.size.height
         var points = [CGPoint]()
         for (index, cloud) in clouds.enumerated() {
             let point = CGPoint(x: width * CGFloat(index) + width / 2,
-                                y: start + height * (1.0 - CGFloat(cloud.cloudiness / 100.0)))
+                                y: frame.origin.y + frame.size.height * (1.0 - CGFloat(cloud.cloudiness / 100.0)))
             points.append(point)
         }
         return points
