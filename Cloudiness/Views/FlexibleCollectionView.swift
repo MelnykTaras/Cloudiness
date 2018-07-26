@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FlexibleCollectionView: UICollectionView {
+final class FlexibleCollectionView: UICollectionView {
     
     var isCellSizeAnimationAllowed = true
     

@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class Cloud {
+struct Cloud {
     let from: Date
     let cloudiness: Float
     
