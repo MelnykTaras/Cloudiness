@@ -12,3 +12,6 @@ This setting is required to build Pods as static libraries instead of dynamic fr
 ## Acknowledgements
 
 Cloudiness forecast is based on data from [The Norwegian Meteorological Institute](https://www.met.no/en)
+
+## License
+Cloudiness is released under the MIT license. See [LICENSE.txt](https://github.com/MelnykTaras/Cloudiness/blob/master/LICENSE.txt) for details.
