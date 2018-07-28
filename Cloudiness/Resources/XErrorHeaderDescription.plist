@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Doesnotapply</key>
+	<string>Requested operation does not apply</string>
+	<key>Encoding</key>
+	<string>Character set encoding error</string>
+	<key>Format</key>
+	<string>Invalid formatting</string>
+	<key>Parameter</key>
+	<string>Invalid parameter</string>
+	<key>Accesscontrol</key>
+	<string>Access control error</string>
+	<key>Permissiondenied</key>
+	<string>Permission denied</string>
+	<key>Nodata</key>
+	<string>We have no data for this request</string>
+	<key>Outsidetimerange</key>
+	<string>I have no data for the requested date/time</string>
+	<key>Validation</key>
+	<string>Validation error</string>
+	<key>Outsidegeographicarea</key>
+	<string>The location is outside the geographic area supported by the product.</string>
+	<key>Ratelimitation</key>
+	<string>Traffic rate limitation</string>
+	<key>Internal</key>
+	<string>Something inside me broke</string>
+	<key>ErrorFromBackend</key>
+	<string>Backend error</string>
+	<key>Unexpectedmissingdata</key>
+	<string>I cannot find my data</string>
+	<key>ServiceUnavailable</key>
+	<string>Server error</string>
+</dict>
+</plist>

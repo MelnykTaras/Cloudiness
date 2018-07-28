@@ -1,0 +1,584 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		84057CF820F8F79F006EF634 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84057CF720F8F79F006EF634 /* DataSource.swift */; };
+		84057CFA20F8FDC8006EF634 /* Requestor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84057CF920F8FDC8006EF634 /* Requestor.swift */; };
+		845DA76820F719F9008F841E /* WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845DA76620F719F8008F841E /* WeatherCell.swift */; };
+		845DA76920F719F9008F841E /* WeatherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845DA76720F719F9008F841E /* WeatherCell.xib */; };
+		846B610F20FF82B000FAF46F /* UIBezierPathExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846B610E20FF82B000FAF46F /* UIBezierPathExtension.swift */; };
+		84AD17D720FF0B07000999A8 /* UICollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AD17D620FF0B07000999A8 /* UICollectionViewExtension.swift */; };
+		84AE0D5D20F9E57400A29658 /* WFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AE0D5C20F9E57400A29658 /* WFileManager.swift */; };
+		84AE0D5F20FA003000A29658 /* Cloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AE0D5E20FA003000A29658 /* Cloud.swift */; };
+		84AE0D6220FA02ED00A29658 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AE0D6120FA02ED00A29658 /* DateExtension.swift */; };
+		84AE0D6520FA03B900A29658 /* DateFormatterCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AE0D6420FA03B900A29658 /* DateFormatterCache.swift */; };
+		84AE0D6720FA0C7D00A29658 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AE0D6620FA0C7D00A29658 /* Parser.swift */; };
+		84AE0D8D20FA477700A29658 /* ErrorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AE0D8C20FA477700A29658 /* ErrorExtension.swift */; };
+		84AE0D8F20FA4BA000A29658 /* ErrorCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AE0D8E20FA4BA000A29658 /* ErrorCode.swift */; };
+		84AE0D9120FA780E00A29658 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AE0D9020FA780E00A29658 /* StringExtension.swift */; };
+		84C425B321076FD60043D2D4 /* FlexibleCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C425B221076FD60043D2D4 /* FlexibleCollectionView.swift */; };
+		84DF143820F8E9B300E0B471 /* JSONViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF143620F8E9B300E0B471 /* JSONViewController.swift */; };
+		84DF143920F8E9B300E0B471 /* JSONViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84DF143720F8E9B300E0B471 /* JSONViewController.xib */; };
+		84DF246A20FB31400091601F /* HTTPStatusErrorCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF246920FB31400091601F /* HTTPStatusErrorCode.swift */; };
+		84DF246C20FB34370091601F /* HTTPStatusCodeDescription.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84DF246B20FB34370091601F /* HTTPStatusCodeDescription.plist */; };
+		84DF246E20FB346C0091601F /* XErrorHeaderDescription.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84DF246D20FB346C0091601F /* XErrorHeaderDescription.plist */; };
+		84DF247020FB84CB0091601F /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF246F20FB84CB0091601F /* UIButtonExtension.swift */; };
+		84DF247220FB994D0091601F /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF247120FB994D0091601F /* LocationManager.swift */; };
+		84DF247420FBA42D0091601F /* Geocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF247320FBA42D0091601F /* Geocoder.swift */; };
+		84DF247620FBAB3C0091601F /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DF247520FBAB3C0091601F /* AlertManager.swift */; };
+		84E2F7F220F657900066E02F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E2F7F120F657900066E02F /* AppDelegate.swift */; };
+		84E2F7F720F657900066E02F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E2F7F520F657900066E02F /* Main.storyboard */; };
+		84E2F7F920F657950066E02F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84E2F7F820F657950066E02F /* Assets.xcassets */; };
+		84E2F7FC20F657950066E02F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E2F7FA20F657950066E02F /* LaunchScreen.storyboard */; };
+		84E2F80520F6FF250066E02F /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E2F80420F6FF240066E02F /* WeatherViewController.swift */; };
+		84E7D28920FCB6BF0093CB41 /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E7D28820FCB6BF0093CB41 /* UIAlertControllerExtension.swift */; };
+		84F335A020FE4D3600C3BADC /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F3359F20FE4D3600C3BADC /* UIColorExtension.swift */; };
+		9645E55B28532925B0F1B7C1 /* libPods-Cloudiness.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BDB8F8588D423E31C4DF345C /* libPods-Cloudiness.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4BD34B1715B3BCEE31481C68 /* Pods-Cloudiness.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cloudiness.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Cloudiness/Pods-Cloudiness.debug.xcconfig"; sourceTree = "<group>"; };
+		649FE7AD69ABA78381B9E28E /* Pods-Cloudiness.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cloudiness.release.xcconfig"; path = "Pods/Target Support Files/Pods-Cloudiness/Pods-Cloudiness.release.xcconfig"; sourceTree = "<group>"; };
+		84057CF720F8F79F006EF634 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
+		84057CF920F8FDC8006EF634 /* Requestor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requestor.swift; sourceTree = "<group>"; };
+		845DA76620F719F8008F841E /* WeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCell.swift; sourceTree = "<group>"; };
+		845DA76720F719F9008F841E /* WeatherCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherCell.xib; sourceTree = "<group>"; };
+		846B610E20FF82B000FAF46F /* UIBezierPathExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBezierPathExtension.swift; sourceTree = "<group>"; };
+		84AD17D620FF0B07000999A8 /* UICollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtension.swift; sourceTree = "<group>"; };
+		84AE0D5C20F9E57400A29658 /* WFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WFileManager.swift; sourceTree = "<group>"; };
+		84AE0D5E20FA003000A29658 /* Cloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cloud.swift; sourceTree = "<group>"; };
+		84AE0D6120FA02ED00A29658 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		84AE0D6420FA03B900A29658 /* DateFormatterCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterCache.swift; sourceTree = "<group>"; };
+		84AE0D6620FA0C7D00A29658 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		84AE0D8C20FA477700A29658 /* ErrorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorExtension.swift; sourceTree = "<group>"; };
+		84AE0D8E20FA4BA000A29658 /* ErrorCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorCode.swift; sourceTree = "<group>"; };
+		84AE0D9020FA780E00A29658 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		84C425B221076FD60043D2D4 /* FlexibleCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexibleCollectionView.swift; sourceTree = "<group>"; };
+		84DF143620F8E9B300E0B471 /* JSONViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONViewController.swift; sourceTree = "<group>"; };
+		84DF143720F8E9B300E0B471 /* JSONViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JSONViewController.xib; sourceTree = "<group>"; };
+		84DF246920FB31400091601F /* HTTPStatusErrorCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPStatusErrorCode.swift; sourceTree = "<group>"; };
+		84DF246B20FB34370091601F /* HTTPStatusCodeDescription.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = HTTPStatusCodeDescription.plist; sourceTree = "<group>"; };
+		84DF246D20FB346C0091601F /* XErrorHeaderDescription.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = XErrorHeaderDescription.plist; sourceTree = "<group>"; };
+		84DF246F20FB84CB0091601F /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		84DF247120FB994D0091601F /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		84DF247320FBA42D0091601F /* Geocoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geocoder.swift; sourceTree = "<group>"; };
+		84DF247520FBAB3C0091601F /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
+		84E2F7EE20F657900066E02F /* Cloudiness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cloudiness.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		84E2F7F120F657900066E02F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		84E2F7F620F657900066E02F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		84E2F7F820F657950066E02F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		84E2F7FB20F657950066E02F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		84E2F7FD20F657950066E02F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84E2F80420F6FF240066E02F /* WeatherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		84E7D28820FCB6BF0093CB41 /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
+		84F3359F20FE4D3600C3BADC /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		BDB8F8588D423E31C4DF345C /* libPods-Cloudiness.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Cloudiness.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		84E2F7EB20F657900066E02F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9645E55B28532925B0F1B7C1 /* libPods-Cloudiness.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1A80D0F10E636776E8F03C0D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4BD34B1715B3BCEE31481C68 /* Pods-Cloudiness.debug.xcconfig */,
+				649FE7AD69ABA78381B9E28E /* Pods-Cloudiness.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		84AE0D6020FA01F300A29658 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				84AE0D6120FA02ED00A29658 /* DateExtension.swift */,
+				84AE0D8C20FA477700A29658 /* ErrorExtension.swift */,
+				84AE0D9020FA780E00A29658 /* StringExtension.swift */,
+				84DF246F20FB84CB0091601F /* UIButtonExtension.swift */,
+				84E7D28820FCB6BF0093CB41 /* UIAlertControllerExtension.swift */,
+				84F3359F20FE4D3600C3BADC /* UIColorExtension.swift */,
+				84AD17D620FF0B07000999A8 /* UICollectionViewExtension.swift */,
+				846B610E20FF82B000FAF46F /* UIBezierPathExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		84AE0D6320FA039F00A29658 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				84AE0D6420FA03B900A29658 /* DateFormatterCache.swift */,
+				84AE0D8E20FA4BA000A29658 /* ErrorCode.swift */,
+				84DF246920FB31400091601F /* HTTPStatusErrorCode.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		84E2F7E520F6578F0066E02F = {
+			isa = PBXGroup;
+			children = (
+				84E2F7F020F657900066E02F /* Cloudiness */,
+				84E2F7EF20F657900066E02F /* Products */,
+				1A80D0F10E636776E8F03C0D /* Pods */,
+				E9AE031098422E43B2F81227 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		84E2F7EF20F657900066E02F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				84E2F7EE20F657900066E02F /* Cloudiness.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		84E2F7F020F657900066E02F /* Cloudiness */ = {
+			isa = PBXGroup;
+			children = (
+				84E2F80820F6FFD90066E02F /* Models */,
+				84E2F80720F6FFCE0066E02F /* Views */,
+				84E2F80620F6FFA80066E02F /* Controllers */,
+				84AE0D6020FA01F300A29658 /* Extensions */,
+				84AE0D6320FA039F00A29658 /* Utils */,
+				84E2F80920F700010066E02F /* Resources */,
+				84E2F80A20F700170066E02F /* SupportingFiles */,
+			);
+			path = Cloudiness;
+			sourceTree = "<group>";
+		};
+		84E2F80620F6FFA80066E02F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				84E2F7F120F657900066E02F /* AppDelegate.swift */,
+				84E2F80420F6FF240066E02F /* WeatherViewController.swift */,
+				84DF143620F8E9B300E0B471 /* JSONViewController.swift */,
+				84DF247520FBAB3C0091601F /* AlertManager.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		84E2F80720F6FFCE0066E02F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				84E2F7F520F657900066E02F /* Main.storyboard */,
+				84E2F7FA20F657950066E02F /* LaunchScreen.storyboard */,
+				84DF143720F8E9B300E0B471 /* JSONViewController.xib */,
+				845DA76720F719F9008F841E /* WeatherCell.xib */,
+				845DA76620F719F8008F841E /* WeatherCell.swift */,
+				84C425B221076FD60043D2D4 /* FlexibleCollectionView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		84E2F80820F6FFD90066E02F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				84057CF720F8F79F006EF634 /* DataSource.swift */,
+				84057CF920F8FDC8006EF634 /* Requestor.swift */,
+				84AE0D5C20F9E57400A29658 /* WFileManager.swift */,
+				84AE0D6620FA0C7D00A29658 /* Parser.swift */,
+				84AE0D5E20FA003000A29658 /* Cloud.swift */,
+				84DF247120FB994D0091601F /* LocationManager.swift */,
+				84DF247320FBA42D0091601F /* Geocoder.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		84E2F80920F700010066E02F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				84E2F7F820F657950066E02F /* Assets.xcassets */,
+				84DF246B20FB34370091601F /* HTTPStatusCodeDescription.plist */,
+				84DF246D20FB346C0091601F /* XErrorHeaderDescription.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		84E2F80A20F700170066E02F /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				84E2F7FD20F657950066E02F /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		E9AE031098422E43B2F81227 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BDB8F8588D423E31C4DF345C /* libPods-Cloudiness.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		84E2F7ED20F657900066E02F /* Cloudiness */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84E2F80020F657950066E02F /* Build configuration list for PBXNativeTarget "Cloudiness" */;
+			buildPhases = (
+				04ECE15ED03175E6A21342EB /* [CP] Check Pods Manifest.lock */,
+				84E2F80320F6FA510066E02F /* ShellScript */,
+				84E2F7EA20F657900066E02F /* Sources */,
+				84E2F7EB20F657900066E02F /* Frameworks */,
+				84E2F7EC20F657900066E02F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Cloudiness;
+			productName = Cloudiness;
+			productReference = 84E2F7EE20F657900066E02F /* Cloudiness.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		84E2F7E620F6578F0066E02F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "Taras Melnyk";
+				TargetAttributes = {
+					84E2F7ED20F657900066E02F = {
+						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 84E2F7E920F6578F0066E02F /* Build configuration list for PBXProject "Cloudiness" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 84E2F7E520F6578F0066E02F;
+			productRefGroup = 84E2F7EF20F657900066E02F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				84E2F7ED20F657900066E02F /* Cloudiness */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		84E2F7EC20F657900066E02F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84DF246C20FB34370091601F /* HTTPStatusCodeDescription.plist in Resources */,
+				84DF246E20FB346C0091601F /* XErrorHeaderDescription.plist in Resources */,
+				845DA76920F719F9008F841E /* WeatherCell.xib in Resources */,
+				84DF143920F8E9B300E0B471 /* JSONViewController.xib in Resources */,
+				84E2F7FC20F657950066E02F /* LaunchScreen.storyboard in Resources */,
+				84E2F7F920F657950066E02F /* Assets.xcassets in Resources */,
+				84E2F7F720F657900066E02F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		04ECE15ED03175E6A21342EB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Cloudiness-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		84E2F80320F6FA510066E02F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		84E2F7EA20F657900066E02F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				846B610F20FF82B000FAF46F /* UIBezierPathExtension.swift in Sources */,
+				84AD17D720FF0B07000999A8 /* UICollectionViewExtension.swift in Sources */,
+				84AE0D8D20FA477700A29658 /* ErrorExtension.swift in Sources */,
+				84DF247420FBA42D0091601F /* Geocoder.swift in Sources */,
+				84E2F80520F6FF250066E02F /* WeatherViewController.swift in Sources */,
+				84DF246A20FB31400091601F /* HTTPStatusErrorCode.swift in Sources */,
+				84AE0D9120FA780E00A29658 /* StringExtension.swift in Sources */,
+				84E7D28920FCB6BF0093CB41 /* UIAlertControllerExtension.swift in Sources */,
+				84DF247220FB994D0091601F /* LocationManager.swift in Sources */,
+				84057CFA20F8FDC8006EF634 /* Requestor.swift in Sources */,
+				84F335A020FE4D3600C3BADC /* UIColorExtension.swift in Sources */,
+				84AE0D5D20F9E57400A29658 /* WFileManager.swift in Sources */,
+				84E2F7F220F657900066E02F /* AppDelegate.swift in Sources */,
+				84057CF820F8F79F006EF634 /* DataSource.swift in Sources */,
+				84AE0D5F20FA003000A29658 /* Cloud.swift in Sources */,
+				84AE0D6720FA0C7D00A29658 /* Parser.swift in Sources */,
+				84DF247620FBAB3C0091601F /* AlertManager.swift in Sources */,
+				84C425B321076FD60043D2D4 /* FlexibleCollectionView.swift in Sources */,
+				84DF247020FB84CB0091601F /* UIButtonExtension.swift in Sources */,
+				84DF143820F8E9B300E0B471 /* JSONViewController.swift in Sources */,
+				84AE0D6520FA03B900A29658 /* DateFormatterCache.swift in Sources */,
+				84AE0D6220FA02ED00A29658 /* DateExtension.swift in Sources */,
+				84AE0D8F20FA4BA000A29658 /* ErrorCode.swift in Sources */,
+				845DA76820F719F9008F841E /* WeatherCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		84E2F7F520F657900066E02F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84E2F7F620F657900066E02F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		84E2F7FA20F657950066E02F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84E2F7FB20F657950066E02F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		84E2F7FE20F657950066E02F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_EXPLICIT_OWNERSHIP_TYPE = YES;
+				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				DEPLOYMENT_POSTPROCESSING = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VALID_ARCHS = "arm64 armv7s";
+			};
+			name = Debug;
+		};
+		84E2F7FF20F657950066E02F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_STATIC_ANALYZER_MODE = deep;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_EXPLICIT_OWNERSHIP_TYPE = YES;
+				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				DEPLOYMENT_POSTPROCESSING = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = YES;
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				SDKROOT = iphoneos;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7s";
+			};
+			name = Release;
+		};
+		84E2F80120F657950066E02F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4BD34B1715B3BCEE31481C68 /* Pods-Cloudiness.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QTDVSSMNF6;
+				INFOPLIST_FILE = Cloudiness/SupportingFiles/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lionsbit.Cloudiness;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		84E2F80220F657950066E02F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 649FE7AD69ABA78381B9E28E /* Pods-Cloudiness.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QTDVSSMNF6;
+				INFOPLIST_FILE = Cloudiness/SupportingFiles/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lionsbit.Cloudiness;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		84E2F7E920F6578F0066E02F /* Build configuration list for PBXProject "Cloudiness" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84E2F7FE20F657950066E02F /* Debug */,
+				84E2F7FF20F657950066E02F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84E2F80020F657950066E02F /* Build configuration list for PBXNativeTarget "Cloudiness" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84E2F80120F657950066E02F /* Debug */,
+				84E2F80220F657950066E02F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 84E2F7E620F6578F0066E02F /* Project object */;
+}
