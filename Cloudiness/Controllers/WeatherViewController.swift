@@ -30,7 +30,9 @@ final class WeatherViewController: UIViewController {
         clouds = DataSource.fetchWeather(withDelegate: self)
         setup()
         collectionView.updateCellSize()
-        reloadCollectionView()
+        DispatchQueue.main.async {
+            self.reloadCollectionView()
+        }
         updateTitle()
     }
     
@@ -55,6 +57,10 @@ private extension WeatherViewController {
     }
     
     func reloadCollectionView() {
+        guard clouds.count > 0 else {
+            return
+        }
+        
         currentHourCellIndex = nil
         var isForecastOutdated = false
         let now = Date()
@@ -70,15 +76,11 @@ private extension WeatherViewController {
             }
         }
 
+        collectionView.updateCellSize()
         collectionView.reloadData()
-        DispatchQueue.main.async(execute: {
-            self.collectionView.performBatchUpdates(nil, completion: { _ in
-                self.collectionView.updateCellSize()
-                self.updateCurve()
-                let row = isForecastOutdated ? self.clouds.count - 1 : self.currentHourCellIndex ?? 0
-                self.collectionView.scrollToItem(at: IndexPath(item: row, section: 0), at: .centeredHorizontally, animated: true)
-            })
-        })
+        updateCurve()
+        let row = isForecastOutdated ? clouds.count - 1 : currentHourCellIndex ?? 0
+        collectionView.scrollToItem(at: IndexPath(item: row, section: 0), at: .centeredHorizontally, animated: true)
     }
     
     func updateCurve() {

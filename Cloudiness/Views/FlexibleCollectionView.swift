@@ -10,21 +10,27 @@ import UIKit
 
 final class FlexibleCollectionView: UICollectionView {
     
-    var isCellSizeAnimationAllowed = true
+    private var cellHeight: CGFloat?
+    static let cellWidth: CGFloat = 40
     
     override func layoutSubviews() {
-        super.layoutSubviews()
-        if isCellSizeAnimationAllowed {
-            isCellSizeAnimationAllowed = false
-            performBatchUpdates({ updateCellSize() }, completion: { _ in
-                self.isCellSizeAnimationAllowed = true
-            })
+        if cellHeight != collectionViewHeight() {
+            performBatchUpdates({ updateCellSize() }, completion: nil)
         }
+        super.layoutSubviews()
     }
     
     func updateCellSize() {
+        let estimatedCellHeight = collectionViewHeight()
+        guard cellHeight != estimatedCellHeight else {
+            return
+        }
+        cellHeight = estimatedCellHeight
         let layout = collectionViewLayout as! UICollectionViewFlowLayout
-        let height = bounds.size.height
-        layout.itemSize = CGSize(width: 40, height: height)
+        layout.itemSize = CGSize(width: FlexibleCollectionView.cellWidth, height: cellHeight!)
+    }
+    
+    private func collectionViewHeight() -> CGFloat {
+        return bounds.size.height
     }
 }

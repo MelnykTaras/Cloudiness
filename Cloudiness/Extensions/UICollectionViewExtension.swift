@@ -10,10 +10,23 @@ import UIKit
 
 extension UICollectionView {
     
-    func curve(fromGrayscaleFrame frame: CGRect?, _ clouds: [Cloud]) -> CAShapeLayer? {
-        guard let frame = frame, clouds.count > 1 else {
+    private static let labelHeight: CGFloat = 20.5
+    
+    func curve(fromGrayscaleFrame grayscaleFrame: CGRect?, _ clouds: [Cloud]) -> CAShapeLayer? {
+        guard clouds.count > 1 else {
             return nil
         }
+        
+        var frame: CGRect
+        if let grayscaleFrame = grayscaleFrame {
+            frame = grayscaleFrame
+        } else {
+            frame = CGRect(x: 0,
+                           y: UICollectionView.labelHeight,
+                           width: FlexibleCollectionView.cellWidth,
+                           height: bounds.size.height - UICollectionView.labelHeight * 2)
+        }
+        
         let points = controlPoints(fromGrayscaleFrame: frame, clouds)
         let layer = CAShapeLayer()
         layer.path = UIBezierPath.cubicCurvedPath(withPoints: points).cgPath

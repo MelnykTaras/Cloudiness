@@ -112,6 +112,8 @@ extension LocationManager: CLLocationManagerDelegate {
             if lastLocation!.horizontalAccuracy <= 100 {
                 AlertManager.dismissLocationAlert()
                 saveLocation(lastLocation)
+            } else {
+                AlertManager.enableLocationsAlertSaveButton()
             }
         }
     }
