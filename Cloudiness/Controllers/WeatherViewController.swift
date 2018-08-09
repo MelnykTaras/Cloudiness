@@ -27,6 +27,7 @@ final class WeatherViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NetworkActivityIndicator.setup()
         clouds = DataSource.fetchWeather(withDelegate: self)
         setup()
         collectionView.updateCellSize()

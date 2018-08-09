@@ -104,7 +104,7 @@ final class AlertManager {
     static func enableLocationsAlertSaveButton() {
         if !locationsAlertSaveButton.isEnabled {
             locationsAlertSaveButton.isEnabled = true
-            locationAlert.view.tintColor = UIColor.gray
+            locationAlert.view.tintColor = UIColor.gray // because enabling button resets its tintColor
         }
     }
     

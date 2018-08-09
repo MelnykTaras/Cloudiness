@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		84057CF820F8F79F006EF634 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84057CF720F8F79F006EF634 /* DataSource.swift */; };
 		84057CFA20F8FDC8006EF634 /* Requestor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84057CF920F8FDC8006EF634 /* Requestor.swift */; };
+		841AB640211B541400292022 /* NetworkActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841AB63F211B541400292022 /* NetworkActivityIndicator.swift */; };
 		845DA76820F719F9008F841E /* WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845DA76620F719F8008F841E /* WeatherCell.swift */; };
 		845DA76920F719F9008F841E /* WeatherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845DA76720F719F9008F841E /* WeatherCell.xib */; };
 		846B610F20FF82B000FAF46F /* UIBezierPathExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846B610E20FF82B000FAF46F /* UIBezierPathExtension.swift */; };
@@ -47,6 +48,7 @@
 		649FE7AD69ABA78381B9E28E /* Pods-Cloudiness.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cloudiness.release.xcconfig"; path = "Pods/Target Support Files/Pods-Cloudiness/Pods-Cloudiness.release.xcconfig"; sourceTree = "<group>"; };
 		84057CF720F8F79F006EF634 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		84057CF920F8FDC8006EF634 /* Requestor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requestor.swift; sourceTree = "<group>"; };
+		841AB63F211B541400292022 /* NetworkActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkActivityIndicator.swift; sourceTree = "<group>"; };
 		845DA76620F719F8008F841E /* WeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCell.swift; sourceTree = "<group>"; };
 		845DA76720F719F9008F841E /* WeatherCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherCell.xib; sourceTree = "<group>"; };
 		846B610E20FF82B000FAF46F /* UIBezierPathExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBezierPathExtension.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				84AE0D5E20FA003000A29658 /* Cloud.swift */,
 				84DF247120FB994D0091601F /* LocationManager.swift */,
 				84DF247320FBA42D0091601F /* Geocoder.swift */,
+				841AB63F211B541400292022 /* NetworkActivityIndicator.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				84E7D28920FCB6BF0093CB41 /* UIAlertControllerExtension.swift in Sources */,
 				84DF247220FB994D0091601F /* LocationManager.swift in Sources */,
 				84057CFA20F8FDC8006EF634 /* Requestor.swift in Sources */,
+				841AB640211B541400292022 /* NetworkActivityIndicator.swift in Sources */,
 				84F335A020FE4D3600C3BADC /* UIColorExtension.swift in Sources */,
 				84AE0D5D20F9E57400A29658 /* WFileManager.swift in Sources */,
 				84E2F7F220F657900066E02F /* AppDelegate.swift in Sources */,
@@ -532,7 +536,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.lionsbit.Cloudiness1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lionsbit.Cloudiness;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -552,7 +556,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.lionsbit.Cloudiness1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lionsbit.Cloudiness;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
