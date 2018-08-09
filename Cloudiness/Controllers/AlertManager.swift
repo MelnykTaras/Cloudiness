@@ -11,6 +11,7 @@ import UIKit
 final class AlertManager {
     
     private static weak var locationAlert: UIAlertController!
+    private static weak var locationsAlertSaveButton: UIAlertAction!
     private static let geolocationAdvice = """
                                               \n\n
                                               To speed up the process:
@@ -67,9 +68,14 @@ final class AlertManager {
         let message = suffix + geolocationAdvice
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Save", style: .cancel, handler: { _ in
+        
+        let saveButton = UIAlertAction(title: "Save", style: .cancel, handler: { _ in
             alertControllerDelegate.saveLastLocation()
-        }))
+        })
+        saveButton.isEnabled = false
+        alert.addAction(saveButton)
+        locationsAlertSaveButton = saveButton
+        
         alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { _ in
             locationManagerDelegate.cancelRetreivingLocation()
         }))
@@ -93,6 +99,13 @@ final class AlertManager {
                         Required: 100 m
                      """
         locationAlert.message = suffix + geolocationAdvice
+    }
+    
+    static func enableLocationsAlertSaveButton() {
+        if !locationsAlertSaveButton.isEnabled {
+            locationsAlertSaveButton.isEnabled = true
+            locationAlert.view.tintColor = UIColor.gray // because enabling button resets its tintColor
+        }
     }
     
     static func dismissLocationAlert() {
