@@ -124,7 +124,7 @@ extension WeatherViewController: UICollectionViewDataSource {
         cell.grayscale.backgroundColor = UIColor(white: backgroundWhite, alpha: 1.0)
         let time = cloud.from.time
         cell.time.text = time
-        if time == "3" {
+        if time == "2" {
             cell.date.text = cloud.from.date
             cell.date.textColor = backgroundWhite < 0.5 ? UIColor.white : UIColor.black
         } else {
