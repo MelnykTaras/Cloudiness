@@ -531,6 +531,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 7N4XWEA584;
+				GCC_OPTIMIZATION_LEVEL = s;
 				INFOPLIST_FILE = Cloudiness/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -540,6 +541,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.steelkiwi.Cloudiness;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "XC Wildcard iOS Development";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
