@@ -16,7 +16,7 @@ protocol RequestorDelegate {
 
 final class Requestor {
     
-    private static let weatherURL = "https://api.met.no/weatherapi/locationforecastlts/1.3/.json"
+    private static let weatherURL = "https://api.met.no/weatherapi/locationforecast/1.9/.json"
     
     private static let lastModifiedKey = "Last-Modified"
     private static var lastModified = UserDefaults.standard.string(forKey: lastModifiedKey)

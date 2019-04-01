@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bsg-la-oja">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bsg-la-oja">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -82,7 +81,7 @@
                             <constraint firstItem="9Vh-Ac-CbL" firstAttribute="leading" secondItem="oH4-rI-2HM" secondAttribute="leading" id="8AW-gT-OXx"/>
                             <constraint firstItem="9Vh-Ac-CbL" firstAttribute="trailing" secondItem="oH4-rI-2HM" secondAttribute="trailing" id="CYU-fJ-FHV"/>
                             <constraint firstItem="9Vh-Ac-CbL" firstAttribute="bottom" secondItem="oH4-rI-2HM" secondAttribute="bottom" id="Dl4-jC-7yt"/>
-                            <constraint firstItem="9Vh-Ac-CbL" firstAttribute="top" secondItem="RO2-h7-oLG" secondAttribute="top" id="Iyu-Zk-6eV"/>
+                            <constraint firstItem="9Vh-Ac-CbL" firstAttribute="top" secondItem="oH4-rI-2HM" secondAttribute="top" id="Iyu-Zk-6eV"/>
                             <constraint firstItem="PXI-5Q-aGe" firstAttribute="centerY" secondItem="RO2-h7-oLG" secondAttribute="centerY" id="PBt-zV-iPa"/>
                             <constraint firstItem="PXI-5Q-aGe" firstAttribute="centerX" secondItem="RO2-h7-oLG" secondAttribute="centerX" id="ivl-mS-3Nq"/>
                         </constraints>
