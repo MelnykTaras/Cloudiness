@@ -10,7 +10,7 @@ DEPENDENCIES:
   - SwiftyJSON
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - AlamofireNetworkActivityIndicator
     - SwiftyJSON
@@ -22,4 +22,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: db43c164d86eca4c0f7711da26aaa8612553b7f4
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.8.1
